@@ -94,9 +94,8 @@ const PageTrollboard: React.FC = () => {
 
   return (
     <>
-      <Layout title="Funk-27 | Trollboard">
+      <Layout title="Trollboard">
         <Head>
-          <title>F27 | Trollboard</title>
           <meta name="twitter:card" content="summary_large_image" />
           <meta
             name="twitter:image"
@@ -112,7 +111,7 @@ const PageTrollboard: React.FC = () => {
           s
           <meta
             property="og:title"
-            content={`Funk-27 | Trollboard`}
+            content="Funk-27 | Trollboard"
             key="title"
           />
           <meta

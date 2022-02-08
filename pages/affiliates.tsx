@@ -8,7 +8,7 @@ export const PageAffiliates = () => {
   return (
     <Layout>
       <Head>
-        <title>F27 | Affiliates</title>
+        <title>Affiliates</title>
         <link rel="icon" href="/favicon.ico" />
 
         <meta name="twitter:card" content="summary_large_image" />

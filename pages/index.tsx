@@ -22,10 +22,8 @@ const IndexPage = () => {
     page();
   }, []);
   return (
-    <Layout title="Funk-27 | Discontent Providers">
+    <Layout title="Funk-27">
       <Head>
-        <title>F27 | Discontent Providers</title>
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/shedShot.png" />
         <meta name="twitter:creator" content="@aidThompsin" />

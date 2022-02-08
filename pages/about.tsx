@@ -26,9 +26,8 @@ export const AboutPage = () => {
   }, []);
   toggleLoading(false);
   return (
-    <Layout title="Funk-27 | About">
+    <Layout title="About">
       <Head>
-        <title>F27 | About</title>
         <link rel="icon" href="/favicon.ico" />
 
         <meta name="twitter:card" content="summary_large_image" />

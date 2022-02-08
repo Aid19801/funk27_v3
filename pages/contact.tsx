@@ -20,11 +20,9 @@ export const ContactPage = () => {
     page();
   }, []);
   return (
-    <Layout title="Funk-27 | Contact">
+    <Layout title="Contact">
       <Head>
-        <title>F27 | Contact Us</title>
         <link rel="icon" href="/favicon.ico" />
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/shedShot.png" />
         <meta name="twitter:creator" content="@aidThompsin" />

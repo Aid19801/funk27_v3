@@ -23,12 +23,9 @@ export const PageSocials: React.FC = () => {
   }, []);
 
   return (
-    <Layout title="F27 | Socials">
+    <Layout title="Socials">
       <Head>
-        <title>F27 | Get @ Me</title>
-
         <meta name="twitter:card" content="summary_large_image" />
-
         <meta
           name="twitter:image" //@ts-ignore
           content="/shedShot.png"
