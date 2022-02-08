@@ -9,6 +9,7 @@
 
 a {
   text-decoration: none !important;
+  /* cursor: default; */
 }
 .blog__container p {
   font-family: Lora;

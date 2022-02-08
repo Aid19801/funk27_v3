@@ -37,7 +37,7 @@ export default function Nav() {
   const handleRouteChange = (loc) => {
     toggleLoading(true);
     setIsOpen(false);
-    router.push("/" + loc);
+    // router.push("/" + loc);
   };
 
   React.useEffect(() => {
@@ -122,27 +122,30 @@ export default function Nav() {
           {navOptions.map((eachOption, i) => {
             return (
               <React.Fragment key={eachOption}>
-                <ListItem
-                  component="button"
-                  onClick={() => handleRouteChange(eachOption)}
-                  sx={{
-                    color: isMobile ? "white" : "white",
-                    background: "none",
-                    border: "none",
-                  }}
-                >
-                  <ListItemText
-                    primary={eachOption}
+                <Link href={`/${eachOption}`} passHref>
+                  <ListItem
+                    button
+                    component="a"
+                    onClick={() => handleRouteChange(eachOption)}
                     sx={{
-                      textAlign: isMobile ? "center" : "start",
-                      "& span": {
-                        transition: `${(i + 1) * 200}ms`,
-                        ml: isOpen ? 0 : "-50px",
-                        fontSize: isOpen ? responsiveFontsize : "100px",
-                      },
+                      color: isMobile ? "white" : "white",
+                      background: "none",
+                      border: "none",
                     }}
-                  />
-                </ListItem>
+                  >
+                    <ListItemText
+                      primary={eachOption}
+                      sx={{
+                        textAlign: isMobile ? "center" : "start",
+                        "& span": {
+                          transition: `${(i + 1) * 200}ms`,
+                          ml: isOpen ? 0 : "-50px",
+                          fontSize: isOpen ? responsiveFontsize : "100px",
+                        },
+                      }}
+                    />
+                  </ListItem>
+                </Link>
                 <Divider light />
               </React.Fragment>
             );
