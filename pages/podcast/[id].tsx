@@ -37,10 +37,8 @@ const PagePodcast = ({ data }: Props) => {
     page();
   }, []);
   return (
-    <Layout title={`Podcast | ${data.title1[0].text}`}>
+    <Layout title={`${data.title1[0].text}`}>
       <Head>
-        <title>{data.title1[0].text}</title>
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={data["podc_ep_twitter_img"].url} />
         <meta name="twitter:creator" content="@aidThompsin" />

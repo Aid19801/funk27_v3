@@ -41,9 +41,8 @@ const PagePodcastIndex = ({ data }: Props) => {
     }
   }, [data]);
   return (
-    <Layout title="Funk-27 | Podcasts">
+    <Layout title="Podcast">
       <Head>
-        <title>F27 | Aid Thompsin & Other Disappointments</title>
         <link rel="icon" href="/favicon.ico" />
 
         <meta name="twitter:card" content="summary_large_image" />

@@ -30,9 +30,8 @@ const PageBlogIndex = ({ data }: Props) => {
     page();
   }, []);
   return (
-    <Layout title="Blog Index Page">
+    <Layout title="Blog">
       <Head>
-        <title>Funk-27 | Blog</title>
         <link rel="icon" href="/favicon.ico" />
 
         <meta name="twitter:card" content="summary_large_image" />

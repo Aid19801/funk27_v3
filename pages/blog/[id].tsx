@@ -61,8 +61,6 @@ const PageBlog = ({ data }: Props) => {
   return (
     <Layout title={headline}>
       <Head>
-        <title>{data.data["blog-title"][0].text}</title>
-
         <meta name="twitter:card" content="summary_large_image" />
 
         <meta
