@@ -25,6 +25,10 @@ export default function Application({ Component, pageProps }) {
           <Head>
             <link rel="icon" href="/favicon.svg" />
             <script src="https://www.googleoptimize.com/optimize.js?id=OPT-KQZVC96" />
+            <meta
+              name="google-site-verification"
+              content="5VDospE_8sb6L8r7hwJyTYFsv4SRXZ4BTn7q4suVtI4"
+            />
           </Head>
           <Component {...pageProps} />
         </AnalyticsProvider>
