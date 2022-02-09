@@ -120,6 +120,10 @@ const PageTrollboard: React.FC = () => {
             key="description"
           />
           <meta
+            name="description"
+            content="We got tired of trolly comments on Tiktoks and Twitter - so we built you a Trollboard where you can exorcise your demons in style."
+          />
+          <meta
             property="og:image"
             content="https://funk-27.co.uk/f27_troll.jpg"
             key="funk27 troll podcast microphone"

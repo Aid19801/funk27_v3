@@ -65,6 +65,11 @@ const PagePodcastIndex = ({ data }: Props) => {
         />
 
         <meta
+          name="description"
+          content="Every weekend we release another blog detailing the ridiculousness of British politics."
+        />
+
+        <meta
           property="og:image"
           //@ts-ignore
           content={data.twitter_image.url}

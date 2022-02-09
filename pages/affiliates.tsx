@@ -22,6 +22,11 @@ export const PageAffiliates = () => {
         <meta property="og:title" content={`F27 | Affiliates`} key="title" />
 
         <meta
+          name="description"
+          content="We work with some of the most exciting names coming up in the worlds of Comedy and Politics."
+        />
+
+        <meta
           property="og:description"
           content="Funk-27 is a platform for Political discussion and Dystopian blogs & podcasts. We work with some exciting names."
           key="description"

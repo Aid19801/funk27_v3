@@ -41,6 +41,11 @@ export const PageSocials: React.FC = () => {
         />
 
         <meta
+          name="description"
+          content="Follow us on these platforms to stay up to date"
+        />
+
+        <meta
           property="og:description"
           //@ts-ignore
           content="Get in touch or follow us on other platforms to get full exposure to upcoming Podcasts, chat Politics, or muse over the future of Media and Tech. Or the weather. The weather is fine, also."

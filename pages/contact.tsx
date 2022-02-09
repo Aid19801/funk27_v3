@@ -36,6 +36,11 @@ export const ContactPage = () => {
         />
 
         <meta
+          name="description"
+          content="Get in touch to discuss upcoming projects, submit your blogs or just to say hi."
+        />
+
+        <meta
           property="og:description"
           //@ts-ignore
           content="Contact Funk-27 to discuss the AT // OD podcast, one of our blogs or even the weather. Weather emails may not get a response."

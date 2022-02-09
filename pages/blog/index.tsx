@@ -54,6 +54,11 @@ const PageBlogIndex = ({ data }: Props) => {
         />
 
         <meta
+          name="description"
+          content="Home of the 'Aid Thompsin & Other Disappointments' podcast with guests such as Otto English, Jemma Forte and Dane Baptiste."
+        />
+
+        <meta
           property="og:image"
           //@ts-ignore
           content={data.twitter_image.url}

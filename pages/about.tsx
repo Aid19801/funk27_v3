@@ -36,6 +36,11 @@ export const AboutPage = () => {
         <meta name="twitter:site" content="@aidThompsin" />
 
         <meta
+          name="description"
+          content="Who are we? What do we do? Where did we come from? And how is your mother?"
+        />
+
+        <meta
           property="og:title"
           //@ts-ignore
           content={`Funk-27 | About`}
