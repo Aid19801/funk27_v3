@@ -159,3 +159,28 @@ span img.twitter__img {
 a.twitter__link {
   text-decoration: none;
 }
+
+.funk__btn {
+  background: grey;
+  padding: 20px 30px;
+  border-radius: 30px;
+  min-width: 90px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+  font-family: Oswald, Merriweather, monospace, Arial;
+  transition: 300ms;
+}
+
+.funk__btn:hover {
+  background: rgb(240, 175, 77);
+}
+
+@media screen and (max-width: 899px) {
+  .funk__btn {
+    margin-top: 30px;
+    min-width: 190px;
+    font-size: 30px;
+  }
+}
