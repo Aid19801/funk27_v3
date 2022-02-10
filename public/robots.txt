@@ -1,7 +1,17 @@
 # *
 User-agent: *
+
+# Specify which pages the above-mentioned engine should crawl
 Allow: /
-/signup/
+Allow: /podcast
+Allow: /blog
+Allow: /about
+Allow: /trollboards
+
+# Specify which pages the above-mentioned engine should not crawl
+Disallow: /signup/
+Disallow: /affiliates/
+Disallow: /404/
 
 # Host
 Host: https://funk-27.co.uk
