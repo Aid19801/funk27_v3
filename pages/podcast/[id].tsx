@@ -69,6 +69,7 @@ const PagePodcast = ({ data }: Props) => {
           mb: 5,
           color: (theme) => theme.palette.secondary.light,
           fontSize: isDesktop ? 60 : 80,
+          mt: 4,
         }}
       >
         {data && data.title1[0].text}
@@ -79,7 +80,8 @@ const PagePodcast = ({ data }: Props) => {
           xs={12}
           md={6}
           sx={{
-            pl: isDesktop ? "inherit" : "0px !important",
+            display: "flex",
+            justifyContent: "center",
           }}
         >
           {data && (
@@ -106,11 +108,10 @@ const PagePodcast = ({ data }: Props) => {
           <Card sx={{ display: "flex", flexDirection: "column", padding: 4 }}>
             <Typography
               variant="body2"
-              fontFamily="Lora"
               sx={{
                 fontSize: isDesktop ? "inherit" : "30px",
                 fontWeight: isDesktop ? 300 : 400,
-                fontFamily: "Arial",
+                fontFamily: "Merriweather",
               }}
             >
               {data && data.description[0].text}
@@ -161,15 +162,16 @@ const PagePodcast = ({ data }: Props) => {
             </Box>
           </Card>
           <Divider sx={{ mb: 4, width: "90%" }} />
-          <Card sx={{ display: "flex", flexDirection: "column", padding: 4 }}>
+          <Card
+            sx={{ display: "flex", flexDirection: "column", padding: 4, mb: 4 }}
+          >
             <Typography
               variant="body2"
-              fontFamily="Lora"
               sx={{
                 fontSize: isDesktop ? "inherit" : "30px",
                 fontWeight: isDesktop ? 300 : 400,
                 color: "darkgrey",
-                fontFamily: "Arial",
+                fontFamily: "Merriweather",
               }}
             >
               "Aid Thompsin & Other Disappointments" is a podcast where i get to

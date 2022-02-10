@@ -51,7 +51,13 @@ export default function Nav() {
   }, [isOpen]);
 
   return (
-    <Box sx={{ display: "flex", height: "64px", zIndex: 10000000 }}>
+    <Box
+      sx={{
+        display: "flex",
+        height: isMobile ? "51px" : "56px",
+        zIndex: 10000000,
+      }}
+    >
       <MuiAppBar
         sx={{
           py: 2,
@@ -79,11 +85,11 @@ export default function Nav() {
           px: isOpen ? 1 : 0,
           position: "absolute",
           top: isMobile ? "15px" : null,
-          left: isMobile ? "4px" : null,
+          left: isMobile ? "4px" : "28px",
           width: isOpen ? navWidth : 0,
           contain: "content",
           height: "auto",
-          zIndex: 2,
+          zIndex: 6,
           border: isOpen ? "4px solid grey" : null,
           background: (theme) => theme.palette.secondary.light,
           boxShadow: "1px 20px 26px 5px rgba(0,0,0,0.67)",

@@ -9,7 +9,7 @@ import Head from "next/head";
 const IndexPage = () => {
   const { toggleLoading } = useMainContext();
   const [showBrand, setShowBrand] = React.useState<boolean>(false);
-  const { track, page, identify } = useAnalytics();
+  const { page } = useAnalytics();
   toggleLoading(false);
 
   React.useEffect(() => {
@@ -59,7 +59,6 @@ const IndexPage = () => {
           justifyContent: "center",
           alignItems: "center",
           mt: "-17px",
-          ml: "-25px",
         }}
       >
         <Box sx={{ display: "flex", flexDirection: "row" }}>

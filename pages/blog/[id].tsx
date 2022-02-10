@@ -26,7 +26,13 @@ type Props = {
   data: any;
 };
 
+interface TitleType {
+  first: string[];
+  second: string[];
+  third: string[];
+}
 const PageBlog = ({ data }: Props) => {
+  const [title, setTitle] = React.useState<TitleType | null>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -47,10 +53,32 @@ const PageBlog = ({ data }: Props) => {
 
   const { toggleLoading } = useMainContext();
   const { page } = useAnalytics();
+
+  const cutupTitle = () => {
+    const str = data.data["blog-title"][0].text;
+    const arrOfWordsInTitle = str.split(" ");
+    const firstJuncture = Math.round(arrOfWordsInTitle.length / 3);
+    const secondJuncture = Math.round(arrOfWordsInTitle.length / 3) * 2;
+    const firstBit = arrOfWordsInTitle.slice(0, firstJuncture);
+    const secondBit = arrOfWordsInTitle.slice(firstJuncture, secondJuncture);
+    const thirdBit = arrOfWordsInTitle.slice(
+      secondJuncture,
+      arrOfWordsInTitle.length
+    );
+    console.log("firstBit", firstBit);
+    console.log("secondBit", secondBit);
+    console.log("thirdBit", thirdBit);
+    setTitle({
+      first: firstBit,
+      second: secondBit,
+      third: thirdBit,
+    });
+  };
+
   React.useEffect(() => {
-    console.log("BLOG[id] CHANGED [data]");
     if (data && data.data["blog-title"]) {
       toggleLoading(false);
+      cutupTitle();
     }
   }, [data]);
 
@@ -91,21 +119,106 @@ const PageBlog = ({ data }: Props) => {
           key="seo share image"
         />
       </Head>
-      <Grid container spacing={2} className="blog__container">
+
+      <div className="funkBlog__bgImgContainer">
+        <div
+          className="funkBlog__bgImg"
+          style={{
+            backgroundImage: isMobile
+              ? "url(/podcast_small.jpg)"
+              : 'url("/podcast_large.jpg")',
+            backgroundPositionX: "center",
+          }}
+        />
+      </div>
+
+      <Grid
+        container
+        spacing={0}
+        className="funkBlog__titleContainer"
+        sx={{ top: isMobile ? "5%" : "1%" }}
+      >
         <Grid
+          className="funkBlog__titleItem"
           item
-          xs={12}
+          xs={11}
+          md={8}
           display="flex"
           justifyContent="center"
           alignItems="center"
-          flexDirection="column"
-          sx={{ padding: "0px !important" }}
+          sx={{
+            // padding: "0px !important",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            height: "auto",
+            paddingTop: isMobile ? "60px" : "60px",
+            px: isMobile ? "30px" : null,
+            pb: isMobile ? "30px" : "60px",
+          }}
         >
+          {title &&
+            title.first &&
+            title.first.map((each) => {
+              return (
+                <Typography
+                  variant="h1"
+                  sx={{ color: "white", fontWeight: 800 }}
+                >
+                  {each}&nbsp;
+                </Typography>
+              );
+            })}
+
+          <Box
+            sx={{
+              background: "rgba(0, 0, 0, 0.5)",
+              paddingLeft: 2,
+              display: "flex",
+              transform: "skewY(-2deg)",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              textAlign: "center",
+              justifyContent: "center",
+            }}
+          >
+            {title &&
+              title.second &&
+              title.second.map((each) => {
+                return (
+                  <Typography
+                    variant="h1"
+                    sx={{ color: "orange", textAlign: "center" }}
+                  >
+                    {each}&nbsp;
+                  </Typography>
+                );
+              })}
+          </Box>
+
+          {title &&
+            title.third &&
+            title.third.map((each) => {
+              return (
+                <Typography
+                  sx={{ color: "white", fontWeight: 800 }}
+                  variant="h1"
+                >
+                  {each}&nbsp;
+                </Typography>
+              );
+            })}
+        </Grid>
+      </Grid>
+
+      <Grid container>
+        <Grid xs={12} md={12}>
           <Card
             sx={{
-              mt: isMobile ? null : 6,
+              mt: isMobile ? 6 : 6,
               px: isMobile ? null : 8,
-              pb: 6,
+              pt: 6,
+              pb: isMobile ? 3 : 6,
+              mb: isMobile ? 3 : null,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -113,12 +226,6 @@ const PageBlog = ({ data }: Props) => {
                 "linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(217,216,208,0.25674019607843135) 100%)",
             }}
           >
-            <Grow in>
-              <Box sx={{ maxWidth: isMobile ? 350 : 700 }}>
-                <RichText render={data.data["blog-title"]} />
-              </Box>
-            </Grow>
-
             {!isMobile && <MuiDivider prim right />}
 
             <Box
@@ -198,19 +305,11 @@ const PageBlog = ({ data }: Props) => {
 
             <Divider sx={{ width: isMobile ? "90%" : "80%", mb: 4 }} />
 
-            <Image
-              className="blog__mainImage"
-              src={data.data["blog-image-1"].twitter.url}
-              alt={
-                data.data["blog-image-1"].twitter.alt ||
-                "blog man talking politics dystopia"
-              }
-              {...data.data["blog-image-1"].twitter.dimensions}
-            />
             <MuiDivider left prim />
             <Box
+              className="funkBlog__mainContent"
               sx={{
-                width: isMobile ? "80%" : "100%",
+                width: isMobile ? "86%" : "65%",
                 maxWidth: isMobile ? 375 : 800,
                 mt: isMobile ? 1 : 4,
                 display: "flex",

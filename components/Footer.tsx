@@ -98,7 +98,16 @@ export function Footer(): ReactElement {
   };
   return (
     <React.Fragment>
-      <Grid container spacing={2} sx={{ bgcolor: "white" }}>
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          bgcolor: "white",
+          paddingLeft: "20px",
+          paddingRight: "20px",
+          paddingBottom: "20px",
+        }}
+      >
         <Grid item xs={12}>
           <Box>
             <Link href="/">

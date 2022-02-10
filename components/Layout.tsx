@@ -17,10 +17,15 @@ const Layout = ({
   title = "Funk-27 | Politics, Dystopia, Comedy, Tech.",
 }: Props) => {
   const theme = useTheme();
+  const [isArticle, setIsArticle] = React.useState<boolean>(false);
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { isLoading } = useMainContext();
+  React.useEffect(() => {
+    const bool = window?.location?.href.includes("blog/");
+    setIsArticle(bool);
+  }, []);
   return (
-    <div className="layout__container" style={{ marginLeft: 20 }}>
+    <div className="layout__container">
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -74,8 +79,10 @@ const Layout = ({
       />
       <Box
         sx={{
-          mb: "200px",
-          maxWidth: "95vw",
+          minHeight: "30vh",
+          pl: isArticle ? 0 : 2,
+          pr: isArticle ? 0 : 2,
+          pt: isMobile ? 4 : 3,
         }}
       >
         {isLoading ? <Modal /> : children}
