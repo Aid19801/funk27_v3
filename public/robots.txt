@@ -1,6 +1,7 @@
 # *
 User-agent: *
 Allow: /
+/signup/
 
 # Host
 Host: https://funk-27.co.uk
