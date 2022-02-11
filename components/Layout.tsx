@@ -25,7 +25,7 @@ const Layout = ({
     setIsArticle(bool);
   }, []);
   return (
-    <div className="layout__container">
+    <div className="layout__container" id="page-root">
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -78,6 +78,7 @@ const Layout = ({
         }}
       />
       <Box
+        id="page-root"
         sx={{
           minHeight: "30vh",
           pl: isArticle ? 0 : 2,

@@ -40,6 +40,13 @@ export default function Nav() {
     // router.push("/" + loc);
   };
 
+  const handleBadgeClick = () => {
+    // open/close the menu
+    setIsOpen(!isOpen);
+    const el = document.querySelector("#page-root");
+    el.scrollIntoView();
+  };
+
   React.useEffect(() => {
     if (isOpen) {
       setTimeout(() => {
@@ -68,7 +75,7 @@ export default function Nav() {
           justifyContent: "space-between",
         }}
       >
-        <Badge onClick={() => setIsOpen(!isOpen)}>
+        <Badge onClick={handleBadgeClick}>
           <MenuIcon />
         </Badge>
         <Link href="/">
@@ -115,7 +122,7 @@ export default function Nav() {
           </Link>
         )}
 
-        <Divider light />
+        {/* <Divider light /> */}
 
         <List
           component="nav"

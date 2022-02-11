@@ -215,7 +215,7 @@ const PageBlog = ({ data }: Props) => {
       </Grid>
 
       <Grid container>
-        <Grid xs={12} md={12}>
+        <Grid item xs={12} md={12}>
           <Card
             sx={{
               mt: isMobile ? 6 : 6,
