@@ -30,7 +30,7 @@ const IndexPage = () => {
         <meta name="twitter:site" content="@aidThompsin" />
         <meta
           name="description"
-          content="Discontent Providers. We create and serve the Blogs and Podcasts that keep you laughing like a drain while doom-scrolling deeper and deeper into an ocean of existential abyss."
+          content="Discontent Providers. Blogs & Podcasts that keep you laughing like a drain while doom-scrolling deeper into the existential abyss"
         />
         <meta
           property="og:title"
