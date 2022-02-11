@@ -206,15 +206,15 @@ a.twitter__link {
 
 .funkBlog__bgImg {
   position: absolute;
-  z-index: 3;
   height: 100%;
-  width: auto;
   min-width: 100%;
-  transform: scale(1);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+  width: auto;
+  background-size: auto 100%;
+  z-index: 3;
   opacity: 0.8;
+  border: 1px solid red;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .funkBlog__titleContainer {
@@ -228,18 +228,19 @@ a.twitter__link {
 
 .funkBlog__titleItem {
   height: auto;
-  /* border: 1px solid orange; */
   padding: 30px;
-  /* background: rgba(0, 0, 0, 0.3); */
-}
-.funkBlog__titleContainer h1 {
-  /* font-size: 75px; */
 }
 
 .funkBlog__mainContent p {
   font-size: 22px;
   width: 100%;
   font-family: "Merriweather", Arial;
+}
+.funkBlog__mainContent p:nth-child(1) {
+  font-size: 26px;
+  width: 100%;
+  font-weight: 800;
+  font-family: "Oswald", Arial;
 }
 
 .funkBlog__mainContent p:nth-child(3) {
