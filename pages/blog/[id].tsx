@@ -122,7 +122,7 @@ const PageBlog = ({ data }: Props) => {
           className="funkBlog__bgImg"
           style={{
             backgroundImage: isMobile
-              ? "url(/podcast_small.jpg)"
+              ? "url(/podcast_small.jpg) no-repeat center"
               : 'url("/podcast_large.jpg")',
             backgroundPositionX: "center",
           }}
