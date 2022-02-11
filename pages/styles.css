@@ -215,7 +215,7 @@ a.twitter__link {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .funkBlog__titleContainer {
@@ -234,7 +234,7 @@ a.twitter__link {
   /* background: rgba(0, 0, 0, 0.3); */
 }
 .funkBlog__titleContainer h1 {
-  font-size: 75px;
+  /* font-size: 75px; */
 }
 
 .funkBlog__mainContent p {

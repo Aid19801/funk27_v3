@@ -65,9 +65,6 @@ const PageBlog = ({ data }: Props) => {
       secondJuncture,
       arrOfWordsInTitle.length
     );
-    console.log("firstBit", firstBit);
-    console.log("secondBit", secondBit);
-    console.log("thirdBit", thirdBit);
     setTitle({
       first: firstBit,
       second: secondBit,
@@ -161,8 +158,9 @@ const PageBlog = ({ data }: Props) => {
             title.first.map((each) => {
               return (
                 <Typography
+                  key={each}
                   variant="h1"
-                  sx={{ color: "white", fontWeight: 800 }}
+                  sx={{ color: "white", fontWeight: 800, fontSize: "8vh" }}
                 >
                   {each}&nbsp;
                 </Typography>
@@ -186,8 +184,13 @@ const PageBlog = ({ data }: Props) => {
               title.second.map((each) => {
                 return (
                   <Typography
+                    key={each}
                     variant="h1"
-                    sx={{ color: "orange", textAlign: "center" }}
+                    sx={{
+                      color: "orange",
+                      textAlign: "center",
+                      fontSize: "8vh",
+                    }}
                   >
                     {each}&nbsp;
                   </Typography>
@@ -200,7 +203,8 @@ const PageBlog = ({ data }: Props) => {
             title.third.map((each) => {
               return (
                 <Typography
-                  sx={{ color: "white", fontWeight: 800 }}
+                  key={each}
+                  sx={{ color: "white", fontWeight: 800, fontSize: "8vh" }}
                   variant="h1"
                 >
                   {each}&nbsp;
