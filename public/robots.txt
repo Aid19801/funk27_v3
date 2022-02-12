@@ -10,6 +10,7 @@ Allow: /contact
 
 Disallow: /404
 Disallow: /affiliates
+Disallow: /signup
 
 # Host
 Host: https://funk-27.co.uk

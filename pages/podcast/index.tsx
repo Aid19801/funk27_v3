@@ -66,7 +66,7 @@ const PagePodcastIndex = ({ data }: Props) => {
 
         <meta
           name="description"
-          content="Every weekend we unleash another Politics/Humour blog, that details the ridiculousness of British politics."
+          content="Home of the Aid Thompsin and Other Disappointments podcast"
         />
 
         <meta
