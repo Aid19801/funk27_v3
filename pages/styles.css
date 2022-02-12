@@ -4,9 +4,10 @@
 
 body {
   margin: 0;
+  overscroll-behavior: none;
 }
 * {
-  /* border: 1px solid lightgrey; */
+  /* border: 1px solid red; */
   cursor: default;
 }
 
@@ -162,7 +163,7 @@ span img.twitter__img {
 }
 
 .twitter__profilePicName > span > span {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: none !important;
 }
 
@@ -212,7 +213,7 @@ a.twitter__link {
   background-size: auto 100%;
   z-index: 3;
   opacity: 0.8;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-repeat: no-repeat;
   background-position: center;
 }
