@@ -69,7 +69,6 @@ export const AboutPage = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              // textAlign: isMobile ? "center" : "start",
             }}
           >
             <Typography variant="h1">About</Typography>

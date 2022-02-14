@@ -15,62 +15,6 @@ a {
   text-decoration: none !important;
   /* cursor: default; */
 }
-.blog__container p {
-  font-family: Lora;
-  line-height: 1.7;
-  text-align: start;
-  width: 100%;
-}
-.blog__container strong {
-  font-weight: 800;
-}
-.blog__container pre {
-  width: 100%;
-  font-family: monospace;
-  overflow: scroll;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: rgb(224, 241, 241);
-}
-.blog__container p > a {
-  color: orange !important;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.blog__container p:nth-child(5),
-.blog__container p:nth-child(11),
-.blog__container p:nth-child(17),
-.blog__container p:nth-child(24),
-.blog__container p:nth-child(31),
-.blog__container p:nth-child(37) {
-  background: orange;
-  color: white;
-  padding: 20px;
-  transform: skewY(-2deg);
-}
-
-.blog__container p:nth-child(5) > a,
-.blog__container p:nth-child(11) > a,
-.blog__container p:nth-child(17) > a,
-.blog__container p:nth-child(24) > a,
-.blog__container p:nth-child(31) > a,
-.blog__container p:nth-child(37) > a {
-  color: black !important;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.blog__container p.block-img {
-  text-align: center;
-}
-
-.blog__container h1 {
-  font-family: Oswald;
-  font-size: 50px;
-  text-align: center;
-}
 
 .blog__mainImage {
   margin-bottom: 36px;
@@ -83,12 +27,6 @@ a {
 
 .blog__mainImage:hover {
   filter: grayscale(0);
-}
-
-@media screen and (max-width: 600px) {
-  .blog__container p {
-    font-size: 20px;
-  }
 }
 
 .podcast__socials {
@@ -213,7 +151,6 @@ a.twitter__link {
   background-size: auto 100%;
   z-index: 3;
   opacity: 0.8;
-  /* border: 1px solid red; */
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -310,4 +247,7 @@ a.twitter__link {
   .funkBlog__mainContent p {
     font-size: 27px;
   }
+}
+
+.funk__drawer {
 }

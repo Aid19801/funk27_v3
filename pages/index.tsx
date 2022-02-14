@@ -53,7 +53,7 @@ const IndexPage = () => {
       <Box
         sx={{
           height: "90vh",
-          width: "100vw",
+          width: "100%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

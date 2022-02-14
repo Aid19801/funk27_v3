@@ -84,6 +84,7 @@ const Layout = ({
           pl: isArticle ? 0 : 2,
           pr: isArticle ? 0 : 2,
           pt: isMobile ? 4 : 3,
+          mt: "45px",
         }}
       >
         {isLoading ? <Modal /> : children}
