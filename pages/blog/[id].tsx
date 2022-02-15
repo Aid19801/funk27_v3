@@ -122,9 +122,9 @@ const PageBlog = ({ data }: Props) => {
           className="funkBlog__bgImg"
           style={{
             backgroundImage: isMobile
-              ? "url(/podcast_small.jpg)"
-              : 'url("/podcast_large.jpg")',
-            // backgroundPositionX: "center",
+              ? "url(/newspapers_sm.jpg)"
+              : 'url("/newspapers_lg.jpg")',
+            backgroundSize: isMobile ? "auto 100%" : "cover",
           }}
         />
       </div>
@@ -160,7 +160,12 @@ const PageBlog = ({ data }: Props) => {
                 <Typography
                   key={each}
                   variant="h1"
-                  sx={{ color: "white", fontWeight: 800, fontSize: "8vh" }}
+                  sx={{
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "8vh",
+                    textShadow: "8px 6px 1px white",
+                  }}
                 >
                   {each}&nbsp;
                 </Typography>
@@ -190,6 +195,7 @@ const PageBlog = ({ data }: Props) => {
                       color: "orange",
                       textAlign: "center",
                       fontSize: "8vh",
+                      fontWeight: "bold",
                     }}
                   >
                     {each}&nbsp;
@@ -204,7 +210,12 @@ const PageBlog = ({ data }: Props) => {
               return (
                 <Typography
                   key={each}
-                  sx={{ color: "white", fontWeight: 800, fontSize: "8vh" }}
+                  sx={{
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "8vh",
+                    textShadow: "8px 6px 1px white",
+                  }}
                   variant="h1"
                 >
                   {each}&nbsp;
@@ -218,7 +229,7 @@ const PageBlog = ({ data }: Props) => {
         <Grid item xs={12} md={12}>
           <Card
             sx={{
-              mt: isMobile ? 6 : 6,
+              mt: isMobile ? 0 : 6,
               px: isMobile ? null : 8,
               pt: 6,
               pb: isMobile ? 3 : 6,
