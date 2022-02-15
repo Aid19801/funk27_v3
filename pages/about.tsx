@@ -28,17 +28,15 @@ export const AboutPage = () => {
   return (
     <Layout title="About">
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Who are we? What do we do? Where did we come from? And how is your mother?"
+        />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/shedShot.png" />
         <meta name="twitter:creator" content="@aidThompsin" />
         <meta name="twitter:site" content="@aidThompsin" />
-
-        <meta
-          name="description"
-          content="Who are we? What do we do? Where did we come from? And how is your mother?"
-        />
 
         <meta
           property="og:title"
@@ -90,7 +88,7 @@ export const AboutPage = () => {
           >
             Dreamed up after five beers, the platform seeks to become a conduit
             for those looking to gobblie up intelligent and/or funny Podcasts
-            and engaging & humorous Blogs.
+            and engaging or humorous Blogs.
           </Typography>
 
           <MuiDivider left />
@@ -119,7 +117,7 @@ export const AboutPage = () => {
               mt={1}
               textAlign="left"
             >
-              The AT // OD studio which is easily the best podcase to have ever
+              The AT // OD studio which is easily the best podcast to have ever
               emerged from this specific shed.
             </Typography>
           </Box>

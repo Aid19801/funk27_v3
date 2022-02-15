@@ -43,7 +43,10 @@ const PagePodcastIndex = ({ data }: Props) => {
   return (
     <Layout title="Podcast">
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Home of the Aid Thompsin and Other Disappointments podcast"
+        />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={data.twitter_image.url} />
@@ -53,7 +56,7 @@ const PagePodcastIndex = ({ data }: Props) => {
         <meta
           property="og:title"
           //@ts-ignore
-          content={`F27 | Aid Thompsin & Other Disappointments`}
+          content="F27 | Aid Thompsin and Other Disappointments"
           key="title"
         />
 
@@ -62,11 +65,6 @@ const PagePodcastIndex = ({ data }: Props) => {
           //@ts-ignore
           content="A lonely Father-of-two is marooned from his friends and family and has to resort to booking a conversation in with someone every Friday night or he'll lose his fucking mind. Join comedian, Aid Thompsin, and high-profile guests as they try to make sense of the senseless. #Tech #Politics #Dystopia."
           key="description"
-        />
-
-        <meta
-          name="description"
-          content="Home of the Aid Thompsin and Other Disappointments podcast"
         />
 
         <meta

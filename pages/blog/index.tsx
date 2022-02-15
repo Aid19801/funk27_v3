@@ -32,7 +32,10 @@ const PageBlogIndex = ({ data }: Props) => {
   return (
     <Layout title="Blog">
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Every week we unleash another Politics/Humour blog. Grab it now. Or dont. Whatever, yeh."
+        />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={data.twitter_image.url} />
@@ -51,11 +54,6 @@ const PageBlogIndex = ({ data }: Props) => {
           //@ts-ignore
           content="Join me as I attempt to make sense of the senseless with this passable, weekly blog covering Politics, Tech and Dystopia - that I am confident you will find at least 40% enjoyment from."
           key="description"
-        />
-
-        <meta
-          name="description"
-          content="Home of the 'Aid Thompsin & Other Disappointments' podcast with guests such as Otto English, Jemma Forte and Dane Baptiste."
         />
 
         <meta
