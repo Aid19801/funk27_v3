@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useTheme } from "@mui/material/styles";
 import { BadgeAvatar } from "../components/Badge";
 import Layout from "../components/Layout";
-import { useAnalytics } from "use-analytics";
+// import { useAnalytics } from "use-analytics";
 import { useMainContext } from "../context/main";
 import TweetWall from "../components/TweetWall";
 import TiktokWall from "../components/TiktokWall";
@@ -13,13 +13,13 @@ import InstagramWall from "../components/InstagramWall";
 export const PageSocials: React.FC = () => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
-  const { page } = useAnalytics();
+  // const { page } = useAnalytics();
   const { toggleLoading } = useMainContext();
 
   toggleLoading(false);
 
   React.useEffect(() => {
-    page();
+    // page();
   }, []);
 
   return (

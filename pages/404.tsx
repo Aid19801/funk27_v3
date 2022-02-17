@@ -1,12 +1,8 @@
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
 import Layout from "../components/Layout";
-import { useMainContext } from "../context/main";
 import { Box, Button, Grid, Typography, useMediaQuery } from "@mui/material";
-import { useAnalytics } from "use-analytics";
-import { MuiDivider } from "../components/MuiDivider";
-import ContactForm from "../components/ContactForm";
-import Head from "next/head";
+// import { useAnalytics } from "use-analytics";
 import Link from "next/link";
 
 export default function Custom404() {

@@ -3,7 +3,7 @@ import { useTheme } from "@mui/material/styles";
 import Layout from "../components/Layout";
 import { useMainContext } from "../context/main";
 import { Box, Button, Grid, Typography, useMediaQuery } from "@mui/material";
-import { useAnalytics } from "use-analytics";
+// import { useAnalytics } from "use-analytics";
 import { MuiDivider } from "../components/MuiDivider";
 import ContactForm from "../components/ContactForm";
 import Head from "next/head";
@@ -14,10 +14,10 @@ export const ContactPage = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [hasSent, setHasSent] = React.useState(false);
   const [err, setError] = React.useState(null);
-  const { page } = useAnalytics();
+  // const { page } = useAnalytics();
   toggleLoading(false);
   React.useEffect(() => {
-    page();
+    // page();
   }, []);
   return (
     <Layout title="Contact">

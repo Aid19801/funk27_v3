@@ -3,13 +3,13 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import { useMainContext } from "../context/main";
 import { Box, Typography } from "@mui/material";
-import { useAnalytics } from "use-analytics";
+// import { useAnalytics } from "use-analytics";
 import Head from "next/head";
 
 const IndexPage = () => {
   const { toggleLoading } = useMainContext();
   const [showBrand, setShowBrand] = React.useState<boolean>(false);
-  const { page } = useAnalytics();
+  // const { page } = useAnalytics();
   toggleLoading(false);
 
   React.useEffect(() => {
@@ -19,7 +19,7 @@ const IndexPage = () => {
       console.log("showing brand now");
       setShowBrand(true);
     }, 1000);
-    page();
+    // page();
   }, []);
   return (
     <Layout title="Funk-27">

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { GetStaticProps } from "next";
 import fetch from "node-fetch";
-import { useAnalytics } from "use-analytics";
+// import { useAnalytics } from "use-analytics";
 import { getEndpoint, createClient } from "@prismicio/client";
 import { useTheme } from "@mui/material/styles";
 import Layout from "../../components/Layout";
@@ -17,7 +17,7 @@ type Props = {
 const PageBlogIndex = ({ data }: Props) => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
-  const { page } = useAnalytics();
+  // const { page } = useAnalytics();
   const { toggleLoading } = useMainContext();
   React.useEffect(() => {
     // console.log("PAGE BLOG INDEX CHANGED [data]");
@@ -27,7 +27,7 @@ const PageBlogIndex = ({ data }: Props) => {
   }, [data]);
 
   React.useEffect(() => {
-    page();
+    // page();
   }, []);
   return (
     <Layout title="Blog">

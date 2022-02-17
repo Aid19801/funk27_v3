@@ -5,7 +5,7 @@ import { useMainContext } from "../context/main";
 import { Box, Divider, Grid, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import { MuiDivider } from "../components/MuiDivider";
-import { useAnalytics } from "use-analytics";
+// import { useAnalytics } from "use-analytics";
 import Head from "next/head";
 
 const asSeenOnImgs = [
@@ -20,9 +20,9 @@ export const AboutPage = () => {
   const { toggleLoading } = useMainContext();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const { page } = useAnalytics();
+  // const { page } = useAnalytics();
   React.useEffect(() => {
-    page();
+    // page();
   }, []);
   toggleLoading(false);
   return (

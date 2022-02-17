@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useMediaQuery, TextField, Button } from "@mui/material";
-import { useAnalytics } from "use-analytics";
+// import { useAnalytics } from "use-analytics";
 import { useTheme } from "@mui/material/styles";
 type TrollBoardFormProps = {
   onSubmit: (name: string, text: string) => void;
@@ -19,7 +19,7 @@ const BANNED_WORDS = [
 ];
 const TrollBoardForm: React.FC<TrollBoardFormProps> = ({ onSubmit }) => {
   const theme = useTheme();
-  const { track } = useAnalytics();
+  // const { track } = useAnalytics();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [text, setText] = React.useState<string>("");
   const [name, setName] = React.useState<string>("");
@@ -29,7 +29,7 @@ const TrollBoardForm: React.FC<TrollBoardFormProps> = ({ onSubmit }) => {
     const arr = text.split(" ");
     arr.map((each: string) => {
       if (BANNED_WORDS.includes(each)) {
-        track("troll tried to use racist language");
+        // track("troll tried to use racist language");
         alert("Come on, man. It's a trollboard not the British Legion.");
         return setText("");
       }
@@ -37,7 +37,7 @@ const TrollBoardForm: React.FC<TrollBoardFormProps> = ({ onSubmit }) => {
     onSubmit(name, text);
     setText("");
     setName("");
-    track(`troll: ${text}`);
+    // track(`troll: ${text}`);
   };
 
   const handleChangeName = (event) => {

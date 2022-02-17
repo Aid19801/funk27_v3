@@ -1,7 +1,7 @@
 import * as React from "react";
 import fetch from "node-fetch";
 import { getEndpoint, createClient } from "@prismicio/client";
-import { useAnalytics } from "use-analytics";
+// import { useAnalytics } from "use-analytics";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import { useTheme } from "@mui/material/styles";
 import Layout from "../../components/Layout";
@@ -27,14 +27,14 @@ const PagePodcast = ({ data }: Props) => {
   const router = useRouter();
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
-  const { page } = useAnalytics();
+  // const { page } = useAnalytics();
   const { toggleLoading } = useMainContext();
   if (data) {
     toggleLoading(false);
   }
 
   React.useEffect(() => {
-    page();
+    // page();
   }, []);
   return (
     <Layout title={`${data.title1[0].text}`}>
