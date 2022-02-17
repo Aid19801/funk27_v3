@@ -28,14 +28,12 @@ export default function Document() {
         <noscript
           dangerouslySetInnerHTML={{
             __html: `
-            <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-W925CBM"
             height="0"
             width="0"
             style="display:none;visibility:hidden"
           ></iframe>
-        </noscript>
             `,
           }}
         ></noscript>
