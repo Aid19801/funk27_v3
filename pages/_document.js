@@ -25,7 +25,10 @@ export default function Document() {
         <meta name="application-name" content="Funk-27" />
       </Head>
       <body>
-        <noscript>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `
+            <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-W925CBM"
             height="0"
@@ -33,6 +36,10 @@ export default function Document() {
             style="display:none;visibility:hidden"
           ></iframe>
         </noscript>
+            `,
+          }}
+        ></noscript>
+
         <Main />
         <NextScript />
       </body>
