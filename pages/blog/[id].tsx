@@ -83,6 +83,7 @@ const PageBlog = ({ data }: Props) => {
     page();
   }, []);
 
+  console.log("data", data);
   return (
     <Layout title={headline}>
       <Head>
@@ -254,7 +255,15 @@ const PageBlog = ({ data }: Props) => {
                 mb: 2,
               }}
             >
-              <BadgeAvatar src="/me.jpeg" height={60} width={60} />
+              <BadgeAvatar
+                src={
+                  data?.data?.author_image?.url
+                    ? data.data.author_image.url
+                    : "/me.jpeg"
+                }
+                height={60}
+                width={60}
+              />
               <Box
                 sx={{
                   display: "flex",
@@ -265,15 +274,24 @@ const PageBlog = ({ data }: Props) => {
               >
                 <Typography
                   component="a"
-                  href="https://twitter.com/aidthompsin"
+                  href={
+                    data?.data?.authorTwitter[0]?.text
+                      ? `https://twitter.com/${data?.data?.authorTwitter[0]?.text}`
+                      : "https://twitter.com/aidThompsin"
+                  }
+                  target="_blank"
                   sx={{ textDecoration: "none", color: "black" }}
                   fontFamily="monospace"
                   fontSize="13px"
                 >
-                  @AidThompsin
+                  {data?.data?.authorTwitter[0]?.text
+                    ? data?.data?.authorTwitter[0]?.text
+                    : "@aidThompsin"}
                 </Typography>
                 <Typography variant="h6" fontFamily="monospace" fontSize="13px">
-                  London, UK.
+                  {data?.data?.authorLocation[0]?.text
+                    ? data?.data?.authorLocation[0]?.text
+                    : "London, UK"}
                 </Typography>
               </Box>
             </Box>
