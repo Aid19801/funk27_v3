@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
 import Nav from "./Nav";
+import TagManager from "react-gtm-module";
 import { Box, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useMainContext } from "../context/main";
@@ -23,6 +24,7 @@ const Layout = ({
   React.useEffect(() => {
     const bool = window?.location?.href.includes("blog/");
     setIsArticle(bool);
+    TagManager.initialize({ gtmId: "GTM-W925CBM" });
   }, []);
   return (
     <div className="layout__container" id="page-root">
