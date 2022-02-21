@@ -38,7 +38,7 @@ export const ContentCard: React.FC<ContentCardType> = ({
   return (
     <Card sx={{ minHeight: 300 }}>
       <div onClick={() => toggleLoading(true)}>
-        <Link href="/podcast/[id]" as={`podcast/${slug}`}>
+        <Link href="/podcast/[id]" as={`/podcast/${slug}`}>
           <Box>
             <CardMedia
               component="img"

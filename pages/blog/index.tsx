@@ -34,7 +34,7 @@ const PageBlogIndex = ({ data }: Props) => {
       <Head>
         <meta
           name="description"
-          content="Every week we unleash another Politics/Humour blog. Grab it now. Or dont. Whatever, yeh."
+          content="Every Sunday, a new Blog to elicit some doom-lolz from the Dystopian nightmare we now inhabit."
         />
 
         <meta name="twitter:card" content="summary_large_image" />

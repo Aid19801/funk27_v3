@@ -5,7 +5,6 @@ import { theme } from "../theme";
 import "./styles.css";
 
 export default function Application({ Component, pageProps }) {
-  console.log("appjs");
   return (
     <MainContextProvider>
       <ThemeProvider theme={theme}>

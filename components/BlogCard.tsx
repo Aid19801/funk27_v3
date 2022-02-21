@@ -16,7 +16,6 @@ interface BlogCardProps {
   comments?: number;
   imgSrc: string;
   imgAlt?: string;
-  categoryImgSrc: string;
 }
 
 export const BlogCard: React.FC<BlogCardProps> = ({
@@ -26,7 +25,6 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   comments = 0,
   imgSrc,
   imgAlt = "political dystopia blog artwork",
-  categoryImgSrc,
 }) => {
   const [expanded, setExpanded] = React.useState(false);
   const router = useRouter();
