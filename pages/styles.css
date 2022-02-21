@@ -187,14 +187,14 @@ a.twitter__link {
   padding: 9px;
   color: white;
 }
-.funkBlog__mainContent p:nth-child(7) {
+/* .funkBlog__mainContent p:nth-child(7) {
   background: grey;
   transform: skewY(2deg);
   padding: 12px;
   color: white;
   font-family: "Oswald", Arial;
   font-weight: 300;
-}
+} */
 
 .funkBlog__mainContent p:nth-child(11) {
   background: orange;
@@ -202,42 +202,42 @@ a.twitter__link {
   padding: 9px;
   color: white;
 }
-.funkBlog__mainContent p:nth-child(15) {
+/* .funkBlog__mainContent p:nth-child(15) {
   background: grey;
   transform: skewY(2deg);
   padding: 12px;
   color: white;
   font-family: "Oswald", Arial;
   font-weight: 300;
-}
+} */
 .funkBlog__mainContent p:nth-child(21) {
   background: orange;
   transform: skewY(-3deg);
   padding: 9px;
   color: white;
 }
-.funkBlog__mainContent p:nth-child(26) {
+/* .funkBlog__mainContent p:nth-child(26) {
   background: grey;
   transform: skewY(2deg);
   padding: 12px;
   color: white;
   font-family: "Oswald", Arial;
   font-weight: 300;
-}
+} */
 .funkBlog__mainContent p:nth-child(31) {
   background: orange;
   transform: skewY(-3deg);
   padding: 9px;
   color: white;
 }
-.funkBlog__mainContent p:nth-child(36) {
+/* .funkBlog__mainContent p:nth-child(36) {
   background: grey;
   transform: skewY(2deg);
   padding: 12px;
   color: white;
   font-family: "Oswald", Arial;
   font-weight: 300;
-}
+} */
 
 .funkBlog__mainContent p a {
   color: orange;
