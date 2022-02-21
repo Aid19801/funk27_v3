@@ -7,6 +7,7 @@ import { useTheme } from "@mui/material/styles";
 import { useMainContext } from "../context/main";
 import { Modal } from "./Modal";
 import Footer from "./Footer";
+import Script from "next/script";
 
 type Props = {
   children?: ReactNode;
@@ -24,7 +25,7 @@ const Layout = ({
   React.useEffect(() => {
     const bool = window?.location?.href.includes("blog/");
     setIsArticle(bool);
-    TagManager.initialize({ gtmId: "GTM-W925CBM" });
+    // TagManager.initialize({ gtmId: "GTM-W925CBM" });
   }, []);
   return (
     <div className="layout__container" id="page-root">
@@ -32,6 +33,20 @@ const Layout = ({
         <title>{title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Z1WSJRTW2F"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+  
+            gtag('config', 'G-Z1WSJRTW2F');
+            `}
+        </Script>
       </Head>
       <Nav />
       <Box
