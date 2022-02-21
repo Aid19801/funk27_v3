@@ -92,7 +92,6 @@ const PageBlogIndex = ({ data }: Props) => {
                 comments={0}
                 imgSrc={each.blog.data["blog-image-1"].twitter.url}
                 imgAlt={each.blog.data["blog-image-1"].alt}
-                categoryImgSrc={each.blog.data["blog-image-2"].url}
                 date={each.blog.first_publication_date}
               />
             </Grid>
