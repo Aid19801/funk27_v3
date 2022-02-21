@@ -33,20 +33,6 @@ const Layout = ({
         <title>{title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-Z1WSJRTW2F"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-  
-            gtag('config', 'G-Z1WSJRTW2F');
-            `}
-        </Script>
       </Head>
       <Nav />
       <Box
