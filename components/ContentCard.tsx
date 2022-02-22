@@ -8,7 +8,6 @@ import {
   Typography,
 } from "@mui/material";
 import Link from "next/link";
-import ReactGA from "react-ga";
 import { BadgeAvatar } from "./Badge";
 import { useMainContext } from "../context/main";
 
@@ -39,11 +38,6 @@ export const ContentCard: React.FC<ContentCardProps> = ({
 
   const handleSelectCard = () => {
     toggleLoading(true);
-    ReactGA.event({
-      category: "podcasts",
-      action: extendedStay ? `more content podcast` : `clicked 1 podcast`,
-      label: extendedStay ? `wanted-more ${slug}` : `selected ${slug}`,
-    });
   };
 
   return (

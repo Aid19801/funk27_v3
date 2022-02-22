@@ -2,7 +2,6 @@ import * as React from "react";
 import { GetStaticProps } from "next";
 import fetch from "node-fetch";
 import { getEndpoint, createClient } from "@prismicio/client";
-import ReactGA from "react-ga";
 import Layout from "../../components/Layout";
 import { useMainContext } from "../../context/main";
 import {
@@ -31,9 +30,6 @@ const PagePodcastIndex = ({ data }: Props) => {
   const secondMostRecentEpisode = data?.body[0].items[1];
   const { toggleLoading } = useMainContext();
 
-  React.useEffect(() => {
-    ReactGA.pageview("podcast");
-  }, []);
   React.useEffect(() => {
     if (data) {
       toggleLoading(false);

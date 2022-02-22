@@ -1,5 +1,4 @@
 import * as React from "react";
-import ReactGA from "react-ga";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -33,11 +32,6 @@ export const BlogCard: React.FC<BlogCardProps> = ({
 
   const handleSelectCard = () => {
     toggleLoading(true);
-    ReactGA.event({
-      category: "blogs",
-      action: extendedStay ? `more content blog` : `clicked 1 blog`,
-      label: extendedStay ? `wanted-more ${slug}` : `selected ${slug}`,
-    });
   };
 
   return (
