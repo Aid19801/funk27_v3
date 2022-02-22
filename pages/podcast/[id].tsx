@@ -1,7 +1,7 @@
 import * as React from "react";
 import fetch from "node-fetch";
 import { getEndpoint, createClient } from "@prismicio/client";
-// import { useAnalytics } from "use-analytics";
+import ReactPlayer from "react-player";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import { useTheme } from "@mui/material/styles";
 import Layout from "../../components/Layout";
@@ -75,43 +75,70 @@ const PagePodcast = ({ data }: Props) => {
       >
         {data && data.title1[0].text}
       </Typography>
-      <Grid container spacing={2}>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          {data && (
-            <Image
-              onClick={() => window.open(data.video.embed_url)}
-              className="blog__mainImage"
-              src={data["podc_ep_twitter_img"].url}
-              alt={
-                data["podc_ep_twitter_img"].alt ||
-                "blog man talking politics dystopia"
-              }
-              {...data["podc_ep_twitter_img"].dimensions}
-            />
-          )}
+      <Grid
+        container
+        spacing={2}
+        maxWidth="1250px"
+        justifyContent={isDesktop ? "flex-start" : "center"}
+      >
+        <Grid item xs={12} sm={10} md={6}>
+          <Card sx={{ width: "90%", height: "400px", px: 2, py: 2 }}>
+            {data?.video?.embed_url ? (
+              <>
+                <ReactPlayer
+                  width="100%"
+                  height="100%"
+                  url={data.video.embed_url}
+                />
+              </>
+            ) : (
+              <Box
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Typography sx={{ color: "darkred" }}>Oh no!</Typography>
+                <Typography sx={{ color: "black" }}>
+                  Video Link appears to be down. Try the YouTube directly...
+                </Typography>
+                <a
+                  href="https://youtube.com/adrianthompsoncomedy"
+                  style={{
+                    color: "black",
+                    fontFamily: "Merriweather",
+                    marginTop: 16,
+                  }}
+                >
+                  Click Here
+                </a>
+                <Typography sx={{ color: "black" }}>
+                  Or use the Spotify, Apple and YouTube links provided!
+                </Typography>
+              </Box>
+            )}
+          </Card>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{
-            pl: isDesktop ? "inherit" : "0px !important",
-          }}
-        >
-          <Card sx={{ display: "flex", flexDirection: "column", padding: 4 }}>
+
+        <Grid item xs={12} sm={10} md={6}>
+          <Card
+            sx={{
+              width: "90%",
+              px: 2,
+              py: 2,
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
             <Typography
               variant="body2"
               sx={{
                 fontSize: isDesktop ? "inherit" : "30px",
-                fontWeight: isDesktop ? 300 : 400,
+                // fontWeight: isDesktop ? 300 : 400,
                 fontFamily: "Merriweather",
               }}
             >
@@ -162,15 +189,33 @@ const PagePodcast = ({ data }: Props) => {
               />
             </Box>
           </Card>
+        </Grid>
+
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            mb: 4,
+            // pl: isDesktop ? "inherit" : "0px !important",
+          }}
+        >
           <Divider sx={{ mb: 4, width: "90%" }} />
+
           <Card
-            sx={{ display: "flex", flexDirection: "column", padding: 4, mb: 4 }}
+            sx={{
+              width: "90%",
+              px: 2,
+              py: 2,
+              display: "flex",
+              flexDirection: "column",
+            }}
           >
             <Typography
               variant="body2"
               sx={{
                 fontSize: isDesktop ? "inherit" : "30px",
-                fontWeight: isDesktop ? 300 : 400,
+                // fontWeight: isDesktop ? 300 : 400,
                 color: "darkgrey",
                 fontFamily: "Merriweather",
               }}

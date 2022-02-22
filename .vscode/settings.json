@@ -6,7 +6,7 @@
     "workbench.colorCustomizations": {
       "statusBarBackground": "#00EECC",
     },
-    "workbench.colorTheme": "Solarized Dark",
+    "workbench.colorTheme": "Solarized Light",
     "[javascript]": {
       "editor.formatOnSave": true
     },
