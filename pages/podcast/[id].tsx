@@ -2,7 +2,6 @@ import * as React from "react";
 import fetch from "node-fetch";
 import { getEndpoint, createClient } from "@prismicio/client";
 import ReactPlayer from "react-player";
-import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import { useTheme } from "@mui/material/styles";
 import Layout from "../../components/Layout";
 import { useMainContext } from "../../context/main";
@@ -11,11 +10,9 @@ import {
   useMediaQuery,
   Grid,
   Box,
-  Button,
   Divider,
   Card,
 } from "@mui/material";
-import { useRouter } from "next/router";
 import Image from "next/image";
 import { Facebook, Podcasts, YouTube } from "@mui/icons-material";
 import Head from "next/head";
@@ -24,7 +21,6 @@ type Props = {
 };
 
 const PagePodcast = ({ data }: Props) => {
-  const router = useRouter();
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const { toggleLoading } = useMainContext();
@@ -33,7 +29,6 @@ const PagePodcast = ({ data }: Props) => {
     if (data) {
       toggleLoading(false);
     }
-    console.log("data is ", data);
   }, [data]);
   return (
     <Layout title={`${data.title1[0].text}`}>

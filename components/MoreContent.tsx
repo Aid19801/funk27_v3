@@ -65,6 +65,7 @@ const MoreContent = () => {
                       imgAlt={each.imgAlt}
                       date={each.date}
                       imgSrc={each.imgSrc}
+                      extendedStay
                     />
                   ) : (
                     <ContentCard
@@ -74,6 +75,7 @@ const MoreContent = () => {
                       profileImgSrc={each.profileImgSrc}
                       artworkAlt={each.imgAlt}
                       slug={each.slug}
+                      extendedStay
                     />
                   )}
                 </Box>

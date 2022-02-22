@@ -2,7 +2,7 @@ import * as React from "react";
 import { GetStaticProps } from "next";
 import fetch from "node-fetch";
 import { getEndpoint, createClient } from "@prismicio/client";
-// import { useAnalytics } from "use-analytics";
+import ReactGA from "react-ga";
 import Layout from "../../components/Layout";
 import { useMainContext } from "../../context/main";
 import {
@@ -29,11 +29,10 @@ const PagePodcastIndex = ({ data }: Props) => {
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const mostRecentEpisode = data?.body[0].items[0];
   const secondMostRecentEpisode = data?.body[0].items[1];
-  // const { page } = useAnalytics();
   const { toggleLoading } = useMainContext();
 
   React.useEffect(() => {
-    // page();
+    ReactGA.pageview("podcast");
   }, []);
   React.useEffect(() => {
     if (data) {

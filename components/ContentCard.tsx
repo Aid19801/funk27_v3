@@ -8,11 +8,11 @@ import {
   Typography,
 } from "@mui/material";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import ReactGA from "react-ga";
 import { BadgeAvatar } from "./Badge";
 import { useMainContext } from "../context/main";
 
-interface ContentCardType {
+interface ContentCardProps {
   backgroundArtworkSrc: string;
   profileImgSrc: string;
   title: string;
@@ -21,9 +21,10 @@ interface ContentCardType {
   descriptionLength?: number;
   firstBatch?: boolean;
   slug?: string;
+  extendedStay?: boolean;
 }
 
-export const ContentCard: React.FC<ContentCardType> = ({
+export const ContentCard: React.FC<ContentCardProps> = ({
   backgroundArtworkSrc,
   artworkAlt,
   profileImgSrc,
@@ -32,12 +33,22 @@ export const ContentCard: React.FC<ContentCardType> = ({
   descriptionLength = 400,
   firstBatch = false,
   slug = "",
+  extendedStay = false,
 }) => {
   const { toggleLoading } = useMainContext();
 
+  const handleSelectCard = () => {
+    toggleLoading(true);
+    ReactGA.event({
+      category: "podcasts",
+      action: extendedStay ? `more content podcast` : `clicked 1 podcast`,
+      label: extendedStay ? `wanted-more ${slug}` : `selected ${slug}`,
+    });
+  };
+
   return (
     <Card sx={{ minHeight: 300 }}>
-      <div onClick={() => toggleLoading(true)}>
+      <div onClick={() => handleSelectCard()}>
         <Link href="/podcast/[id]" as={`/podcast/${slug}`}>
           <Box>
             <CardMedia
