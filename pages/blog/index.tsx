@@ -1,7 +1,6 @@
 import * as React from "react";
 import { GetStaticProps } from "next";
 import fetch from "node-fetch";
-// import { useAnalytics } from "use-analytics";
 import { getEndpoint, createClient } from "@prismicio/client";
 import { useTheme } from "@mui/material/styles";
 import Layout from "../../components/Layout";
@@ -17,10 +16,8 @@ type Props = {
 const PageBlogIndex = ({ data }: Props) => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
-  // const { page } = useAnalytics();
   const { toggleLoading } = useMainContext();
   React.useEffect(() => {
-    // console.log("PAGE BLOG INDEX CHANGED [data]");
     if (data) {
       toggleLoading(false);
     }
@@ -32,15 +29,14 @@ const PageBlogIndex = ({ data }: Props) => {
   return (
     <Layout title="Blog">
       <Head>
-        <meta
-          name="description"
-          content="Every Sunday, a new Blog to elicit some doom-lolz from the Dystopian nightmare we now inhabit."
-        />
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={data.twitter_image.url} />
         <meta name="twitter:creator" content="@aidThompsin" />
         <meta name="twitter:site" content="@aidThompsin" />
+        <meta
+          name="description"
+          content="Every Sunday, a new Blog to elicit some doom-lolz from the Dystopian nightmare we now inhabit."
+        />
 
         <meta
           property="og:title"

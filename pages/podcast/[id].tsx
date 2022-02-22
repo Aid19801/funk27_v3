@@ -27,15 +27,14 @@ const PagePodcast = ({ data }: Props) => {
   const router = useRouter();
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
-  // const { page } = useAnalytics();
   const { toggleLoading } = useMainContext();
-  if (data) {
-    toggleLoading(false);
-  }
 
   React.useEffect(() => {
-    // page();
-  }, []);
+    if (data) {
+      toggleLoading(false);
+    }
+    console.log("data is ", data);
+  }, [data]);
   return (
     <Layout title={`${data.title1[0].text}`}>
       <Head>
@@ -43,6 +42,8 @@ const PagePodcast = ({ data }: Props) => {
         <meta name="twitter:image" content={data["podc_ep_twitter_img"].url} />
         <meta name="twitter:creator" content="@aidThompsin" />
         <meta name="twitter:site" content="@aidThompsin" />
+
+        <meta name="description" content={data.description[0].text} />
 
         <meta
           property="og:title"
