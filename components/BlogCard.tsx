@@ -7,6 +7,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Button, Grow } from "@mui/material";
 import Link from "next/link";
 import { useMainContext } from "../context/main";
+import { fireEvent } from "../utils/ga";
 
 interface BlogCardProps {
   slug: string;
@@ -32,6 +33,10 @@ export const BlogCard: React.FC<BlogCardProps> = ({
 
   const handleSelectCard = () => {
     toggleLoading(true);
+    fireEvent("selected_blog", {
+      event_category: "blogs",
+      event_label: extendedStay ? "more_content_blog" : "blog_from_blog_index",
+    });
   };
 
   return (

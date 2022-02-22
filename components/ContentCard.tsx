@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import { BadgeAvatar } from "./Badge";
 import { useMainContext } from "../context/main";
-
+import { fireEvent } from "../utils/ga";
 interface ContentCardProps {
   backgroundArtworkSrc: string;
   profileImgSrc: string;
@@ -38,6 +38,12 @@ export const ContentCard: React.FC<ContentCardProps> = ({
 
   const handleSelectCard = () => {
     toggleLoading(true);
+    fireEvent("selected_podcast", {
+      event_category: "podcasts",
+      event_label: extendedStay
+        ? "more_content_podcast"
+        : "podc_from_podc_index",
+    });
   };
 
   return (
