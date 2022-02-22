@@ -16,13 +16,13 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import Image from "next/image";
 import { MuiDivider } from "../../components/MuiDivider";
 import { BadgeAvatar } from "../../components/Badge";
 import { Facebook, Twitter } from "@mui/icons-material";
 import Head from "next/head";
 import { ContentCard } from "../../components/ContentCard";
 import { BlogCard } from "../../components/BlogCard";
+import MoreContent from "../../components/MoreContent";
 
 type Props = {
   data: any;
@@ -33,6 +33,7 @@ interface TitleType {
   second: string[];
   third: string[];
 }
+
 const PageBlog = ({ data }: Props) => {
   const [title, setTitle] = React.useState<TitleType | null>(null);
   const theme = useTheme();
@@ -54,7 +55,6 @@ const PageBlog = ({ data }: Props) => {
     .slice(0, 15);
 
   const { toggleLoading } = useMainContext();
-  // const { page } = useAnalytics();
 
   const cutupTitle = () => {
     const str = data.data["blog-title"][0].text;
@@ -85,7 +85,6 @@ const PageBlog = ({ data }: Props) => {
     // page();
   }, []);
 
-  // console.log("data", data);
   return (
     <Layout title={headline}>
       <Head>
@@ -360,82 +359,7 @@ const PageBlog = ({ data }: Props) => {
           </Card>
         </Grid>
 
-        <Grid item xs={12}>
-          <Typography
-            variant="body1"
-            sx={{
-              color: (theme) => theme.palette.secondary.main,
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              fontSize: 20,
-            }}
-          >
-            More Content...
-          </Typography>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <Box
-            sx={{
-              width: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              // px: 1,
-            }}
-          >
-            <ContentCard
-              title="#42 // Otto English"
-              description={`Andrew Scott, known as "Otto English" is a former playwright, journalist and now published author; Check out his book "Fake History" now.`}
-              backgroundArtworkSrc="https://funk-27.co.uk/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Ffunk27%2Ffde6517c-dc66-48bc-8b29-368142550a08_fckthisweek%2B%25284%2529.jpg%3Fauto%3Dcompress%2Cformat%26rect%3D43%2C0%2C1836%2C1080%26w%3D680%26h%3D400&w=1920&q=75"
-              profileImgSrc="https://upload.wikimedia.org/wikipedia/commons/7/79/Otto_English.jpg"
-              artworkAlt="42 at od"
-              slug="episode-42-Otto-English"
-            />
-          </Box>
-        </Grid>
-
-        <Grid item xs={12} md={4}>
-          <Box
-            sx={{
-              width: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              // px: 1,
-            }}
-          >
-            <BlogCard
-              title="Deep Fakes Are About To Ruin Everything"
-              slug="deepfake"
-              imgAlt="robot face"
-              date="Sun Sep 27 2020"
-              imgSrc="https://images.prismic.io/funk27/7508e129-51eb-4320-a964-9b38cc9a8d4a_deepfake3.jpg?auto=compress,format&rect=27,0,1148,675&w=680&h=400"
-            />
-          </Box>
-        </Grid>
-
-        <Grid item xs={12} md={4}>
-          <Box
-            sx={{
-              width: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              // px: 1,
-            }}
-          >
-            <ContentCard
-              title="#14 // Jemma Forte"
-              description="Jemma Forte is a broadcast journalist and author. Tonight she joins me to discuss how Media has changed and what the future holds for post truth, fake news, clickbait journalism"
-              backgroundArtworkSrc="https://i.ytimg.com/vi/cpi637I95mQ/maxresdefault.jpg"
-              profileImgSrc="https://jemmaforte.com/wp-content/uploads/2020/03/about-jemma-forte-rotated.jpg"
-              artworkAlt="14 jemma forte at od podcast"
-              slug="episode-14-jemma-forte"
-            />
-          </Box>
-          <Box sx={{ mb: 4 }} />
-        </Grid>
+        <MoreContent />
       </Grid>
     </Layout>
   );

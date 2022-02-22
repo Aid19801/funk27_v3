@@ -3,7 +3,7 @@ import Script from "next/script";
 import { GA_ID } from "../utils/ga";
 
 export default function Document() {
-  console.log("docJs");
+  const IS_PROD = process.env.NODE_ENV !== "development";
   return (
     <Html lang="en">
       <Head>
@@ -17,21 +17,25 @@ export default function Document() {
           name="keywords"
           content="media, journalism, technology, politics, dystopia, comedy, humourist, humorist, sarcasm"
         />{" "}
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-  
-            gtag('config', '${GA_ID}');
-          `,
-          }}
-        />
+        {IS_PROD && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+    
+              gtag('config', '${GA_ID}');
+            `,
+              }}
+            />
+          </>
+        )}
       </Head>
       <body>
         <Main />

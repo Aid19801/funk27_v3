@@ -118,6 +118,7 @@ export function Footer(): ReactElement {
                   alignItems: "center",
                   justifyContent: "flex-start",
                   ml: 2,
+                  maxWidth: "80px",
                 }}
               >
                 <Typography
