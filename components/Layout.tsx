@@ -80,7 +80,7 @@ const Layout = ({
       <Box
         id="page-root"
         sx={{
-          minHeight: "30vh",
+          minHeight: isMobile ? "30vh" : "70vh",
           pl: isArticle ? 0 : 2,
           pr: isArticle ? 0 : 2,
           pt: isMobile ? 4 : 3,

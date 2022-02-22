@@ -184,18 +184,6 @@ const PagePodcast = ({ data }: Props) => {
               />
             </Box>
           </Card>
-        </Grid>
-
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{
-            mb: 4,
-            // pl: isDesktop ? "inherit" : "0px !important",
-          }}
-        >
-          <Divider sx={{ mb: 4, width: "90%" }} />
 
           <Card
             sx={{
@@ -204,6 +192,7 @@ const PagePodcast = ({ data }: Props) => {
               py: 2,
               display: "flex",
               flexDirection: "column",
+              mt: 2,
             }}
           >
             <Typography
@@ -280,6 +269,18 @@ const PagePodcast = ({ data }: Props) => {
               </Box>
             </Box>
           </Card>
+        </Grid>
+
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            mb: 4,
+            // pl: isDesktop ? "inherit" : "0px !important",
+          }}
+        >
+          <Divider sx={{ mb: 4, mt: 4, width: "90%" }} />
         </Grid>
       </Grid>
     </Layout>

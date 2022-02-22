@@ -11,10 +11,8 @@ export const fireEvent = (
     const token = localStorage.getItem("funk-27");
     const IS_ADMIN = token === "981235iubjerg92h34t9-289035b-209834bht";
     if (IS_ADMIN) {
-      console.log("not firing GA4 events as dev/staging env");
       return;
     } else {
-      console.log("ga4: ", token);
       // @ts-ignore
       window.gtag("event", evtName, {
         ...evtData,
