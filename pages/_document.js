@@ -8,10 +8,6 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <meta name="application-name" content="Funk-27" />
-        <meta
-          name="description"
-          content="Discontent Providers. Blogs & Podcasts that keep you laughing like a drain while doom-scrolling deeper into the existential abyss"
-        />{" "}
         <meta name="author" content="Aid Thompsin" />{" "}
         <meta
           name="keywords"
