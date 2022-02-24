@@ -11,8 +11,12 @@ export const fireEvent = (
     const token = localStorage.getItem("funk-27");
     const IS_ADMIN = token === "981235iubjerg92h34t9-289035b-209834bht";
     if (IS_ADMIN) {
-      return;
-    } else {
+      return console.log("GA4 | admin token | NO EVENTS BEING SENT");
+    }
+    if (!IS_PROD) {
+      return console.log("GA4 | development env | NO EVENTS BEING SENT");
+    }
+    if (IS_PROD && !IS_ADMIN) {
       // @ts-ignore
       window.gtag("event", evtName, {
         ...evtData,
