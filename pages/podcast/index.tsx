@@ -45,8 +45,7 @@ const PagePodcastIndex = ({ data }: Props) => {
     sameAs: ["http://funk-27.co.uk/podcast", "www.funk-27.co.uk/podcast"],
     logo: "https://funk-27.co.uk/f27_seoImage.jpg",
     image: data.twitter_image.url,
-    description:
-      "Join me as I attempt to make sense of the senseless with this passable, weekly blog covering Politics, Tech and Dystopia - that I am confident you will find at least 40% enjoyment from.",
+    description: "Home of the Aid Thompsin and Other Disappointments podcast.",
   };
 
   console.log("podc index data", data);
@@ -54,7 +53,7 @@ const PagePodcastIndex = ({ data }: Props) => {
   return (
     <Layout
       title="Podcast"
-      description="Home of the Aid Thompsin & Other Disappointments podcast."
+      description="Home of the Aid Thompsin and Other Disappointments podcast."
       seoImage="/shedShot.png"
     >
       <Head>
