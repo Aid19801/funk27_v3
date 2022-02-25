@@ -64,16 +64,17 @@ const Layout = ({
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@aidThompsin" />
+        <meta name="twitter:title" content={`Funk-27 | ${title}`} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:creator" content="@aidThompsin" />
+
         <meta
           name="twitter:image"
           content={
             seoImage.indexOf("http") > -1 ? seoImage : `${HOME_URL}${seoImage}`
           }
         />
-        <meta name="twitter:creator" content="@aidThompsin" />
-        <meta name="twitter:site" content="@aidThompsin" />
-
-        {/* structured data json-ld */}
       </Head>
       <Nav />
       <Box

@@ -49,7 +49,7 @@ const PagePodcastIndex = ({ data }: Props) => {
       "Join me as I attempt to make sense of the senseless with this passable, weekly blog covering Politics, Tech and Dystopia - that I am confident you will find at least 40% enjoyment from.",
   };
 
-  // console.log("podc index data", data);
+  console.log("podc index data", data);
 
   return (
     <Layout
