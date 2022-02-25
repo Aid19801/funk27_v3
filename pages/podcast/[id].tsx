@@ -31,9 +31,9 @@ const ChipInIconButton = ({ uid, externalLink, imgSrc, alt, text }) => {
       <a target="_blank">
         <Box
           onClick={() =>
-            fireEvent("chip_in", {
-              event_category: "revenue",
-              event_label: uid,
+            fireEvent(`chipIn_${uid}`, {
+              event_category: "chip_in_revenue",
+              event_label: `chipIn_${uid}`,
             })
           }
           className="chipIn__container"
