@@ -31,38 +31,6 @@ export const AboutPage = () => {
       description="All about F27. How did this start? What even is this?"
       seoImage="/f27_seoImage.jpg"
     >
-      <Head>
-        <meta
-          name="description"
-          content="Who are we? What do we do? Where did we come from? And how is your mother?"
-        />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/shedShot.png" />
-        <meta name="twitter:creator" content="@aidThompsin" />
-        <meta name="twitter:site" content="@aidThompsin" />
-
-        <meta
-          property="og:title"
-          //@ts-ignore
-          content={`Funk-27 | About`}
-          key="title"
-        />
-
-        <meta
-          property="og:description"
-          //@ts-ignore
-          content="Discontent Providers of podcasts, blogs and all things contenty. Check out the weekly humorous blogs about Politics and Dystopia"
-          key="description"
-        />
-
-        <meta
-          property="og:image"
-          content="/shedShot.png"
-          key="seo blog share image"
-        />
-      </Head>
-
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Box

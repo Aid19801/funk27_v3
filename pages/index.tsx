@@ -41,7 +41,7 @@ const IndexPage = () => {
   return (
     <Layout
       title="Funk-27"
-      description="Discontent Providers. Blogs & Podcasts that keep you laughing like a drain while doom-scrolling deeper into the existential abyss"
+      description="Discontent Providers. Blogs and Podcasts that keep you laughing like a drain while doom-scrolling deeper into the existential abyss"
       seoImage="/f27_seoImage.jpg"
     >
       <Head>

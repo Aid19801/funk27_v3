@@ -54,7 +54,7 @@ const PagePodcastIndex = ({ data }: Props) => {
     <Layout
       title="Podcast"
       description="Home of the Aid Thompsin and Other Disappointments podcast."
-      seoImage="/shedShot.png"
+      seoImage={data.twitter_image.url}
     >
       <Head>
         <script
