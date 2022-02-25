@@ -216,28 +216,13 @@ a.twitter__link {
   padding: 9px;
   color: white;
 }
-/* .funkBlog__mainContent p:nth-child(26) {
-  background: grey;
-  transform: skewY(2deg);
-  padding: 12px;
-  color: white;
-  font-family: "Oswald", Arial;
-  font-weight: 300;
-} */
+
 .funkBlog__mainContent p:nth-child(31) {
   background: orange;
   transform: skewY(-3deg);
   padding: 9px;
   color: white;
 }
-/* .funkBlog__mainContent p:nth-child(36) {
-  background: grey;
-  transform: skewY(2deg);
-  padding: 12px;
-  color: white;
-  font-family: "Oswald", Arial;
-  font-weight: 300;
-} */
 
 .funkBlog__mainContent p a {
   color: orange;
@@ -249,5 +234,26 @@ a.twitter__link {
   }
 }
 
-.funk__drawer {
+.chipIn__container {
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.chipIn__icon {
+  width: 50px;
+  border: 3px solid rgba(255, 165, 0, 0.2);
+  padding: 5px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+  transition: 300ms;
+}
+
+.chipIn__icon:hover {
+  border: 3px solid rgba(255, 165, 0, 1);
+  background: lightgrey;
+  padding: 5px;
+  transform: skewY(-2deg);
 }

@@ -13,13 +13,48 @@ import {
   Divider,
   Card,
 } from "@mui/material";
+import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Podcasts, YouTube } from "@mui/icons-material";
 import Head from "next/head";
+import { fireEvent } from "../../utils/ga";
 type Props = {
   data: any;
 };
 
+const ChipInIconButton = ({ uid, externalLink, imgSrc, alt, text }) => {
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+
+  return (
+    <Link href={externalLink}>
+      <a target="_blank">
+        <Box
+          onClick={() =>
+            fireEvent("chip_in", {
+              event_category: "revenue",
+              event_label: uid,
+            })
+          }
+          className="chipIn__container"
+          sx={{
+            borderRadius: 25,
+            mb: isDesktop ? "inherit" : 4,
+            px: 5,
+            py: 1,
+          }}
+        >
+          <img className="chipIn__icon" src={imgSrc} alt={alt} />
+          <Typography
+            sx={{ fontSize: 10, color: "black", textAlign: "center" }}
+          >
+            {text}
+          </Typography>
+        </Box>
+      </a>
+    </Link>
+  );
+};
 const PagePodcast = ({ data }: Props) => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -133,7 +168,6 @@ const PagePodcast = ({ data }: Props) => {
               variant="body2"
               sx={{
                 fontSize: isDesktop ? "inherit" : "30px",
-                // fontWeight: isDesktop ? 300 : 400,
                 fontFamily: "Merriweather",
               }}
             >
@@ -192,6 +226,7 @@ const PagePodcast = ({ data }: Props) => {
               py: 2,
               display: "flex",
               flexDirection: "column",
+              alignItems: "center",
               mt: 2,
             }}
           >
@@ -199,7 +234,6 @@ const PagePodcast = ({ data }: Props) => {
               variant="body2"
               sx={{
                 fontSize: isDesktop ? "inherit" : "30px",
-                // fontWeight: isDesktop ? 300 : 400,
                 color: "darkgrey",
                 fontFamily: "Merriweather",
               }}
@@ -211,62 +245,29 @@ const PagePodcast = ({ data }: Props) => {
 
             <Box
               sx={{
+                width: isDesktop ? "80%" : "100%",
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
-                width: "100%",
-                justifyContent: "space-around",
+                justifyContent: "center",
                 mt: 2,
+                px: 3,
               }}
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: 40,
-                }}
-              >
-                <Image
-                  className="podcast__socials"
-                  onClick={() => window.open("https://patreon.com/aidthompsin")}
-                  src="/patreonLogo.png"
-                  height={40}
-                  width={40}
-                  alt="patreon"
-                />
-                <Typography
-                  variant="body1"
-                  textAlign="center"
-                  sx={{ fontSize: 9, color: "darkgrey" }}
-                >
-                  Support on Patreon
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: 40,
-                }}
-              >
-                <Image
-                  className="podcast__socials"
-                  onClick={() =>
-                    window.open("https://www.buymeacoffee.com/aidthompsin")
-                  }
-                  src="/buymeacoffee.png"
-                  height={40}
-                  width={40}
-                  alt="buymeacoffee logo"
-                />
-                <Typography
-                  variant="body1"
-                  textAlign="center"
-                  sx={{ fontSize: 9, color: "darkgrey" }}
-                >
-                  Buy Me A Coffee
-                </Typography>
-              </Box>
+              <ChipInIconButton
+                uid="view_patreon"
+                imgSrc="/patreonLogo.png"
+                alt="patreon"
+                text="Become A Patreon"
+                externalLink="https://patreon.com/aidthompsin"
+              />
+              <ChipInIconButton
+                uid="view_buyMeACoffee"
+                imgSrc="/coffee_cup.gif"
+                alt="dancing coffee cup"
+                text="Buy Me A Coffee"
+                externalLink="https://www.buymeacoffee.com/aidthompsin"
+              />
             </Box>
           </Card>
         </Grid>
@@ -299,6 +300,7 @@ export async function getServerSideProps(context: any) {
   const thirdSeason = allPodcastData.data.body[2].items;
   const all = [...firstSeason, ...secondSeason, ...thirdSeason];
 
+  console.log("PODCAST PAGE DATA ", all[0].episode_slug);
   const data = all.filter(
     (each) => each.episode_slug[0].text === context.params.id
   )[0];
