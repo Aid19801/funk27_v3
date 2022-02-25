@@ -10,6 +10,7 @@ export const fireEvent = (
 ) => {
   if (process.browser) {
     const token = localStorage.getItem("funk-27");
+    const IS_PROD = process.env.NODE_ENV !== "development";
     const IS_ADMIN = token === "981235iubjerg92h34t9-289035b-209834bht";
     if (IS_ADMIN) {
       return console.log("GA4 | admin token | NO EVENTS BEING SENT");
