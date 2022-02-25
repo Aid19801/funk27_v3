@@ -64,7 +64,12 @@ const Layout = ({
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={`${HOME_URL}${seoImage}`} />
+        <meta
+          name="twitter:image"
+          content={
+            seoImage.indexOf("http") > -1 ? seoImage : `${HOME_URL}${seoImage}`
+          }
+        />
         <meta name="twitter:creator" content="@aidThompsin" />
         <meta name="twitter:site" content="@aidThompsin" />
 
