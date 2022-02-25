@@ -13,7 +13,6 @@ import Layout from "../components/Layout";
 import Head from "next/head";
 import { useMainContext } from "../context/main";
 import TrollBoardForm from "../components/TrollBoardForm";
-// import { useAnalytics } from "use-analytics";
 const COMMENTS_API = "https://trollboard-api.herokuapp.com";
 
 const FONTS = ["monospace", "Arial", "Oswald", "CURSIVE"];
@@ -86,7 +85,6 @@ const PageTrollboard: React.FC = () => {
   };
   React.useEffect(() => {
     fetchAllComments();
-    // page();
   }, []);
   React.useEffect(() => {
     // console.log("comments back ", comments);
@@ -94,41 +92,12 @@ const PageTrollboard: React.FC = () => {
 
   return (
     <>
-      <Layout title="Trollboard">
-        <Head>
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta
-            name="twitter:image"
-            content="https://funk-27.co.uk/f27_troll.jpg"
-          />
-          <meta name="twitter:creator" content="@aidThompsin" />
-          <meta name="twitter:site" content="@aidThompsin" />
-          <meta
-            name="twitter:image:alt"
-            content="funk27 logo but with a troll face on it"
-          />
-          <meta property="twitter:title" content="Funk-27 | Trollboard" />
-          s
-          <meta
-            property="og:title"
-            content="Funk-27 | Trollboard"
-            key="title"
-          />
-          <meta
-            property="og:description"
-            content="Finally internet trolls have a safe space on the web. Yep, this is effectively a whiteboard for trolls. You can troll away to your heart's content and literally all that will happen is I'll cry."
-            key="description"
-          />
-          <meta
-            name="description"
-            content="We got tired of trolly comments on Tiktoks and Twitter - so we built you a Trollboard where you can exorcise your demons in style."
-          />
-          <meta
-            property="og:image"
-            content="https://funk-27.co.uk/f27_troll.jpg"
-            key="funk27 troll podcast microphone"
-          />
-        </Head>
+      <Layout
+        title="Trollboard"
+        description="Finally internet trolls have a safe space on the web. Yep, this is effectively a whiteboard for trolls. You can troll away to your heart's content and literally all that will happen is I'll cry."
+        seoImage="/f27_troll.jpg"
+      >
+        <Head>{/* meta now handled in layout */}</Head>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Box

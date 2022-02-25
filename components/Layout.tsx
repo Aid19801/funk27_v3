@@ -6,30 +6,69 @@ import { useTheme } from "@mui/material/styles";
 import { useMainContext } from "../context/main";
 import { Modal } from "./Modal";
 import Footer from "./Footer";
+import { HOME_URL } from "../utils/more-content";
 
 type Props = {
   children?: ReactNode;
-  title?: string;
+  title: string;
+  description: string;
+  seoImage: string;
 };
 
 const Layout = ({
   children,
-  title = "Funk-27 | Politics, Dystopia, Comedy, Tech.",
+  title = "Funk-27.",
+  description = "Discontent Providers. Here to keep the Doom-LOLz flowing in these dystopian times.",
+  seoImage = "/f27_seoImage.jpg",
 }: Props) => {
   const theme = useTheme();
   const [isArticle, setIsArticle] = React.useState<boolean>(false);
+  const [canonical, setCanonicalUrl] = React.useState<string | null>(null);
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { isLoading } = useMainContext();
+
   React.useEffect(() => {
+    // set bool for slightly diff layout on blog articles
     const bool = window?.location?.href.includes("blog/");
+    const loc = window?.location?.href;
+    // create canonical:
+    setCanonicalUrl(loc.endsWith("/") ? loc.slice(0, -1) : loc);
     setIsArticle(bool);
   }, []);
+
   return (
     <div className="layout__container" id="page-root">
       <Head>
-        <title>{title}</title>
+        <title>{title} | Comedy, Dystopia, Politics Blogs and Podcasts!</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content={description} />
+
+        {/* Facebook */}
+        <meta property="og:title" content={`Funk-27 | ${title}`} key="title" />
+        <meta
+          property="og:description"
+          content={description}
+          key="description"
+        />
+        <meta property="og:site_name" content={HOME_URL} />
+        <meta property="og:url" content={canonical} />
+        <meta
+          property="og:image"
+          content={
+            seoImage.indexOf("http") > -1 ? seoImage : `${HOME_URL}${seoImage}`
+          }
+          key="funk27 podcast microphone"
+        />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={`${HOME_URL}${seoImage}`} />
+        <meta name="twitter:creator" content="@aidThompsin" />
+        <meta name="twitter:site" content="@aidThompsin" />
+
+        {/* structured data json-ld */}
       </Head>
       <Nav />
       <Box

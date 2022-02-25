@@ -113,3 +113,5 @@ export const hardcodeContent = [
     slug: "episode-49-tan-daviemoo",
   },
 ];
+
+export const HOME_URL = "https://funk-27.co.uk";

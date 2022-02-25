@@ -81,45 +81,13 @@ const PageBlog = ({ data }: Props) => {
     }
   }, [data]);
 
-  React.useEffect(() => {
-    // page();
-  }, []);
-
   return (
-    <Layout title={headline}>
-      <Head>
-        <meta name="description" content={data.data["blog-body"][0].text} />
-
-        <meta name="twitter:card" content="summary_large_image" />
-
-        <meta
-          name="twitter:image" //@ts-ignore
-          content={data.data["blog-image-1"].twitter.url}
-        />
-        <meta name="twitter:creator" content="@aidThompsin" />
-        <meta name="twitter:site" content="@aidThompsin" />
-
-        <meta
-          property="og:title"
-          //@ts-ignore
-          content={`Funk-27 | ${data.data["blog-title"][0].text}`}
-          key="title"
-        />
-
-        <meta
-          property="og:description"
-          //@ts-ignore
-          content={data.data["blog-body"][0].text}
-          key="description"
-        />
-
-        <meta
-          property="og:image"
-          //@ts-ignore
-          content={data.data["blog-image-1"].twitter.url}
-          key="seo share image"
-        />
-      </Head>
+    <Layout
+      title={headline}
+      description={data.data["blog-body"][0].text}
+      seoImage={data.data["blog-image-1"].twitter.url}
+    >
+      <Head>{/* meta now in layout */}</Head>
 
       <div className="funkBlog__bgImgContainer">
         <div

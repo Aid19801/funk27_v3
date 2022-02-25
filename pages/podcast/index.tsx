@@ -35,38 +35,32 @@ const PagePodcastIndex = ({ data }: Props) => {
       toggleLoading(false);
     }
   }, [data]);
+
+  const jsonLd = {
+    "@context": "http://www.schema.org",
+    "@type": "RadioEpisode",
+    name: "Podcast",
+    alternateName: "AT // OD Podcast",
+    url: "https://funk-27.co.uk/podcast",
+    sameAs: ["http://funk-27.co.uk/podcast", "www.funk-27.co.uk/podcast"],
+    logo: "https://funk-27.co.uk/f27_seoImage.jpg",
+    image: data.twitter_image.url,
+    description:
+      "Join me as I attempt to make sense of the senseless with this passable, weekly blog covering Politics, Tech and Dystopia - that I am confident you will find at least 40% enjoyment from.",
+  };
+
+  // console.log("podc index data", data);
+
   return (
-    <Layout title="Podcast">
+    <Layout
+      title="Podcast"
+      description="Home of the Aid Thompsin & Other Disappointments podcast."
+      seoImage="/shedShot.png"
+    >
       <Head>
-        <meta
-          name="description"
-          content="Home of the Aid Thompsin and Other Disappointments podcast"
-        />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={data.twitter_image.url} />
-        <meta name="twitter:creator" content="@aidThompsin" />
-        <meta name="twitter:site" content="@aidThompsin" />
-
-        <meta
-          property="og:title"
-          //@ts-ignore
-          content="F27 | Aid Thompsin and Other Disappointments"
-          key="title"
-        />
-
-        <meta
-          property="og:description"
-          //@ts-ignore
-          content="A lonely Father-of-two is marooned from his friends and family and has to resort to booking a conversation in with someone every Friday night or he'll lose his fucking mind. Join comedian, Aid Thompsin, and high-profile guests as they try to make sense of the senseless. #Tech #Politics #Dystopia."
-          key="description"
-        />
-
-        <meta
-          property="og:image"
-          //@ts-ignore
-          content={data.twitter_image.url}
-          key="seo blog share image"
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
 

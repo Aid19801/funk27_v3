@@ -14,33 +14,40 @@ const IndexPage = () => {
       setShowBrand(true);
     }, 1000);
   }, []);
+
+  const jsonLd = {
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    name: "Funk-27",
+    alternateName: "F27",
+    url: "https://funk-27.co.uk",
+    sameAs: ["http://funk-27.co.uk", "www.funk-27.co.uk"],
+    logo: "https://funk-27.co.uk/f27_seoImage.jpg",
+    image: "https://funk-27.co.uk/poddy.png",
+    description:
+      "Twice-Weekly Blogs and Podcasts for the Politics, Tech and Comedy fan.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "London",
+      addressCountry: "United Kingdom",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "51.5233",
+      longitude: "0.0755",
+    },
+  };
+
   return (
-    <Layout title="Funk-27">
+    <Layout
+      title="Funk-27"
+      description="Discontent Providers. Blogs & Podcasts that keep you laughing like a drain while doom-scrolling deeper into the existential abyss"
+      seoImage="/f27_seoImage.jpg"
+    >
       <Head>
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/shedShot.png" />
-        <meta name="twitter:creator" content="@aidThompsin" />
-        <meta name="twitter:site" content="@aidThompsin" />
-        <meta
-          name="description"
-          content="Discontent Providers. Blogs & Podcasts that keep you laughing like a drain while doom-scrolling deeper into the existential abyss"
-        />
-        <meta
-          property="og:title"
-          content={`Funk-27 | Discontent Providers`}
-          key="title"
-        />
-
-        <meta
-          property="og:description"
-          content="Discontent Providers | new media platform (or web-app) serving up Podcasts and Blogs that attempt to make sense of the senseless. In a delightfully c*nty way."
-          key="description"
-        />
-
-        <meta
-          property="og:image"
-          content="/podcast_studio1.jpg"
-          key="funk27 podcast microphone"
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
       <Box

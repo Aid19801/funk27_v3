@@ -20,39 +20,12 @@ export const ContactPage = () => {
     // page();
   }, []);
   return (
-    <Layout title="Contact">
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/shedShot.png" />
-        <meta name="twitter:creator" content="@aidThompsin" />
-        <meta name="twitter:site" content="@aidThompsin" />
-
-        <meta
-          property="og:title"
-          //@ts-ignore
-          content={`Funk-27 | Contact`}
-          key="title"
-        />
-
-        <meta
-          name="description"
-          content="Get in touch to discuss upcoming projects, submit your blogs or just to say hi."
-        />
-
-        <meta
-          property="og:description"
-          //@ts-ignore
-          content="Contact Funk-27 to discuss the AT // OD podcast, one of our blogs or even the weather. Weather emails may not get a response."
-          key="description"
-        />
-
-        <meta
-          property="og:image"
-          content="/shedShot.png"
-          key="seo contact us"
-        />
-      </Head>
+    <Layout
+      title="Contact"
+      description="Get @ Me. Send me a mail or tweet for more infortmation on Dystopian, Comedic and Political content. Or just say 'hi'. Whatever."
+      seoImage="/f27_seoImage.jpg"
+    >
+      <Head>{/* meta handled in layout now */}</Head>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Box

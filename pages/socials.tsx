@@ -23,42 +23,12 @@ export const PageSocials: React.FC = () => {
   }, []);
 
   return (
-    <Layout title="Socials">
-      <Head>
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:image" //@ts-ignore
-          content="/shedShot.png"
-        />
-        <meta name="twitter:creator" content="@aidThompsin" />
-        <meta name="twitter:site" content="@aidThompsin" />
-
-        <meta
-          property="og:title"
-          //@ts-ignore
-          content={`Funk-27 | Discontent Providers`}
-          key="title"
-        />
-
-        <meta
-          name="description"
-          content="Follow us on these platforms to stay up to date"
-        />
-
-        <meta
-          property="og:description"
-          //@ts-ignore
-          content="Get in touch or follow us on other platforms to get full exposure to upcoming Podcasts, chat Politics, or muse over the future of Media and Tech. Or the weather. The weather is fine, also."
-          key="description"
-        />
-
-        <meta
-          property="og:image"
-          //@ts-ignore
-          content="/shedShot.png"
-          key="seo share image"
-        />
-      </Head>
+    <Layout
+      title="Socials"
+      description="Get in touch! You can find more Dystopian DOOM-Lolz content on these fine platforms. Give us a follow and say hi!"
+      seoImage="/f27_seoImage.jpg"
+    >
+      <Head>{/* meta now handled in layout */}</Head>
 
       <Typography
         variant="h1"

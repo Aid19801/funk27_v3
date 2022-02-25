@@ -23,40 +23,31 @@ const PageBlogIndex = ({ data }: Props) => {
     }
   }, [data]);
 
-  React.useEffect(() => {
-    // page();
-  }, []);
+  const jsonLd = {
+    "@context": "http://www.schema.org",
+    "@type": "Blog",
+    name: "Funk-27 Blog",
+    alternateName: "F27 Blog",
+    url: "https://funk-27.co.uk/blog",
+    sameAs: ["http://funk-27.co.uk/blog", "www.funk-27.co.uk/blog"],
+    logo: "https://funk-27.co.uk/f27_seoImage.jpg",
+    image: data.twitter_image.url,
+    description:
+      "Join me as I attempt to make sense of the senseless with this passable, weekly blog covering Politics, Tech and Dystopia - that I am confident you will find at least 40% enjoyment from.",
+  };
+
+  // console.log("blog index data", data);
+
   return (
-    <Layout title="Blog">
+    <Layout
+      title="Blog"
+      description="Join me as I attempt to make sense of the senseless with this passable, weekly blog covering Politics, Tech and Dystopia - that I am confident you will find at least 40% enjoyment from."
+      seoImage={data.twitter_image.url}
+    >
       <Head>
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={data.twitter_image.url} />
-        <meta name="twitter:creator" content="@aidThompsin" />
-        <meta name="twitter:site" content="@aidThompsin" />
-        <meta
-          name="description"
-          content="Every Sunday, a new Blog to elicit some doom-lolz from the Dystopian nightmare we now inhabit."
-        />
-
-        <meta
-          property="og:title"
-          //@ts-ignore
-          content={`Funk-27 | Blog`}
-          key="title"
-        />
-
-        <meta
-          property="og:description"
-          //@ts-ignore
-          content="Join me as I attempt to make sense of the senseless with this passable, weekly blog covering Politics, Tech and Dystopia - that I am confident you will find at least 40% enjoyment from."
-          key="description"
-        />
-
-        <meta
-          property="og:image"
-          //@ts-ignore
-          content={data.twitter_image.url}
-          key="seo blog share image"
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
       <Typography
@@ -64,7 +55,6 @@ const PageBlogIndex = ({ data }: Props) => {
         color="secondary"
         sx={{
           mb: 5,
-          // fontFamily: "monospace",
           color: (theme) => theme.palette.secondary.light,
           fontSize: isDesktop ? 200 : 110,
         }}
@@ -73,7 +63,7 @@ const PageBlogIndex = ({ data }: Props) => {
       </Typography>
 
       <Grid container spacing={2}>
-        {data.blogs.map((each) => {
+        {data.blogs.map((each: any) => {
           return (
             <Grid
               item

@@ -10,32 +10,12 @@ export const PageAffiliates = () => {
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
-    <Layout title="Affiliates">
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:image"
-          content="http://www.timeline.tv/wp-content/uploads/2019/06/O8A3580-copy-2.png"
-        />
-        <meta name="twitter:creator" content="@aidThompsin" />
-        <meta name="twitter:site" content="@aidThompsin" />
-        <meta property="og:title" content={`F27 | Affiliates`} key="title" />
-        <meta
-          name="description"
-          content="We work with some of the most exciting names coming up in the worlds of Comedy and Politics."
-        />
-        <meta
-          property="og:description"
-          content="Funk-27 is a platform for Political discussion and Dystopian blogs & podcasts. We work with some exciting names."
-          key="description"
-        />
-        <meta
-          property="og:image"
-          content="http://www.timeline.tv/wp-content/uploads/2019/06/O8A3580-copy-2.png"
-          key="seo affiliates studio image"
-        />
-      </Head>
+    <Layout
+      title="Affiliates"
+      description="From Supertanskiii to Daviemoo to Femi to Jemma Forte - Check out who we work with and continue to champion."
+      seoImage="/f27_seoImage.jpg"
+    >
+      <Head>{/* meta handled via layout now  */}</Head>
 
       <Typography
         variant="h1"

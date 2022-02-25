@@ -26,7 +26,11 @@ export const AboutPage = () => {
   }, []);
   toggleLoading(false);
   return (
-    <Layout title="About">
+    <Layout
+      title="About"
+      description="All about F27. How did this start? What even is this?"
+      seoImage="/f27_seoImage.jpg"
+    >
       <Head>
         <meta
           name="description"

@@ -66,33 +66,12 @@ const PagePodcast = ({ data }: Props) => {
     }
   }, [data]);
   return (
-    <Layout title={`${data.title1[0].text}`}>
-      <Head>
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={data["podc_ep_twitter_img"].url} />
-        <meta name="twitter:creator" content="@aidThompsin" />
-        <meta name="twitter:site" content="@aidThompsin" />
-
-        <meta name="description" content={data.description[0].text} />
-
-        <meta
-          property="og:title"
-          content={`F27 | Aid Thompsin & Other Disappointments`}
-          key="title"
-        />
-
-        <meta
-          property="og:description"
-          content={data.description[0].text}
-          key="description"
-        />
-
-        <meta
-          property="og:image"
-          content={data["podc_ep_twitter_img"].url}
-          key="seo blog share image"
-        />
-      </Head>
+    <Layout
+      title={`${data.title1[0].text}`}
+      description={data.description[0].text}
+      seoImage={data["podc_ep_twitter_img"].url}
+    >
+      <Head>{/* meta all handled in layout out */}</Head>
       <Typography
         variant="h1"
         color="secondary"

@@ -9,7 +9,11 @@ export default function Custom404() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <Layout title="Not Found">
+    <Layout
+      title="Not Found"
+      description="Error - 404 page."
+      seoImage="/f27_seoImage.jpg"
+    >
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Box
