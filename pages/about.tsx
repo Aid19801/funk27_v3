@@ -5,7 +5,6 @@ import { useMainContext } from "../context/main";
 import { Box, Divider, Grid, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import { MuiDivider } from "../components/MuiDivider";
-// import Head from "next/head";
 
 const asSeenOnImgs = [
   "https://cdn-radiotime-logos.tunein.com/s17569g.png",

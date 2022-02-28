@@ -22,6 +22,8 @@ const Layout = ({
   seoImage = "/f27_seoImage.jpg",
 }: Props) => {
   const theme = useTheme();
+  const [isPodcastEpisode, setIsPodcastEpisode] =
+    React.useState<boolean>(false);
   const [isArticle, setIsArticle] = React.useState<boolean>(false);
   const [canonical, setCanonicalUrl] = React.useState<string | null>(null);
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -30,14 +32,16 @@ const Layout = ({
   React.useEffect(() => {
     // set bool for slightly diff layout on blog articles
     const bool = window?.location?.href.includes("blog/");
+    const isPod = window?.location?.href.includes("podcast/");
     const loc = window?.location?.href;
     // create canonical:
     setCanonicalUrl(loc.endsWith("/") ? loc.slice(0, -1) : loc);
     setIsArticle(bool);
+    setIsPodcastEpisode(isPod);
   }, []);
 
   return (
-    <div className="layout__container" id="page-root">
+    <div className="layout__container">
       <Head>
         <title>{title} | Comedy, Dystopia, Politics Blogs and Podcasts!</title>
         <meta charSet="utf-8" />
@@ -90,7 +94,6 @@ const Layout = ({
           zIndex: -1,
         }}
       />
-
       <Box
         className="box-yo-2"
         sx={{
@@ -130,6 +133,9 @@ const Layout = ({
           pr: isArticle ? 0 : 2,
           pt: isMobile ? 4 : 3,
           mt: "45px",
+          display: isPodcastEpisode ? "flex" : "inherit",
+          alignItems: isPodcastEpisode ? "center" : "inherit",
+          flexDirection: isPodcastEpisode ? "column" : "inherit",
         }}
       >
         {isLoading ? <Modal /> : children}
