@@ -81,8 +81,6 @@ const PagePodcast = ({ data }: Props) => {
     if (data) {
       toggleLoading(false);
     }
-    console.log("data ", data);
-    console.log("jsonLd ", jsonLd);
   }, [data]);
   return (
     <Layout

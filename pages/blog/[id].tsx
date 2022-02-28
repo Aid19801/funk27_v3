@@ -32,7 +32,6 @@ interface TitleType {
 
 const PageBlog = ({ data }: Props) => {
   const [title, setTitle] = React.useState<TitleType | null>(null);
-  const [txtBody, setTxtBody] = React.useState<string | null>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -78,13 +77,12 @@ const PageBlog = ({ data }: Props) => {
         str = str + each.text + " ";
       }
     });
-    setTxtBody(str);
+    return str;
   };
   React.useEffect(() => {
     if (data && data.data["blog-title"]) {
       toggleLoading(false);
       cutupTitle();
-      createFreeTextForGoogle();
     }
   }, [data]);
 
@@ -92,6 +90,7 @@ const PageBlog = ({ data }: Props) => {
     "@context": "http://www.schema.org",
     "@type": "Article",
     name: headline,
+    headline,
     datePublished: data?.data?.date,
     url: `https://funk-27.co.uk/blog/${data?.uid}`,
     sameAs: [
@@ -100,8 +99,11 @@ const PageBlog = ({ data }: Props) => {
     ],
     image: data?.data["blog-image-1"].url,
     description: data?.data["blog-body"][0]?.text,
-    articleBody: txtBody,
+    articleBody: createFreeTextForGoogle(),
     author: {
+      url: data?.data?.authorTwitter[0]?.text
+        ? `https://www.google.com/search?q=who+is+${data?.data?.authorTwitter[0]?.text}&oq=who+is+supertansk&aqs=chrome.0.0i512j69i57.7240j0j7&sourceid=chrome&ie=UTF-8`
+        : "https://www.huffingtonpost.co.uk/author/aid-thompsin",
       "@type": "Person",
       name: data?.data?.authorTwitter[0]?.text
         ? data?.data?.authorTwitter[0]?.text
