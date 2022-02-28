@@ -36,8 +36,6 @@ const PageBlogIndex = ({ data }: Props) => {
       "Join me as I attempt to make sense of the senseless with this passable, weekly blog covering Politics, Tech and Dystopia - that I am confident you will find at least 40% enjoyment from.",
   };
 
-  // console.log("blog index data", data);
-
   return (
     <Layout
       title="Blog"

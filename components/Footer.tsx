@@ -102,6 +102,7 @@ export function Footer(): ReactElement {
         container
         spacing={2}
         sx={{
+          mt: "100px",
           bgcolor: "white",
           paddingLeft: "20px",
           paddingRight: "20px",

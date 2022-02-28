@@ -19,6 +19,7 @@ import { BadgeAvatar } from "../../components/Badge";
 import { Facebook, Twitter } from "@mui/icons-material";
 import Head from "next/head";
 import MoreContent from "../../components/MoreContent";
+import Link from "next/link";
 
 type Props = {
   data: any;
@@ -358,6 +359,33 @@ const PageBlog = ({ data }: Props) => {
               }}
             >
               <RichText render={bodyContent} />
+
+              <MuiDivider left prim />
+
+              <BadgeAvatar
+                src={
+                  data?.data?.author_image?.url
+                    ? data.data.author_image.url
+                    : "/me.jpeg"
+                }
+                height={60}
+                width={60}
+              />
+
+              <Typography variant="h6">
+                {data?.data?.authorBio[0]?.text ||
+                  "Aid Thompsin is a political hector, sometime-standup comedian and exhausted father."}
+              </Typography>
+
+              {data?.data?.authorTwitter[0]?.text && (
+                <Link
+                  href={`https://twitter.com/${data?.data?.authorTwitter[0].text}`}
+                >
+                  <a target="_blank" style={{ fontSize: 10, color: "orange" }}>
+                    {data?.data?.authorTwitter[0].text}
+                  </a>
+                </Link>
+              )}
             </Box>
           </Card>
         </Grid>

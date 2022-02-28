@@ -65,10 +65,6 @@ const PagePodcast = ({ data }: Props) => {
     "@type": "TVEpisode",
     name: data?.title1[0].text,
     url: `https://funk-27.co.uk/podcast/${data?.episode_slug[0].text}`,
-    sameAs: [
-      `www.funk-27.co.uk/podcast/${data?.episode_slug[0].text}`,
-      `http://funk-27.co.uk/podcast/${data?.episode_slug[0].text}`,
-    ],
     image: data["podc_ep_twitter_img"]?.url,
     description: data?.description[0].text,
     author: {
@@ -88,7 +84,12 @@ const PagePodcast = ({ data }: Props) => {
       description={data.description[0].text}
       seoImage={data["podc_ep_twitter_img"].url}
     >
-      <Head>{/* meta all handled in layout out */}</Head>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </Head>
       <Typography
         variant="h1"
         color="secondary"
