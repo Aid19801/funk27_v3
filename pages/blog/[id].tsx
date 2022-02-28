@@ -1,7 +1,6 @@
 import * as React from "react";
 import fetch from "node-fetch";
 import { getEndpoint, createClient } from "@prismicio/client";
-// import { useAnalytics } from "use-analytics";
 import { RichText } from "prismic-reactjs";
 import Layout from "../../components/Layout";
 import { useMainContext } from "../../context/main";
@@ -20,8 +19,6 @@ import { MuiDivider } from "../../components/MuiDivider";
 import { BadgeAvatar } from "../../components/Badge";
 import { Facebook, Twitter } from "@mui/icons-material";
 import Head from "next/head";
-import { ContentCard } from "../../components/ContentCard";
-import { BlogCard } from "../../components/BlogCard";
 import MoreContent from "../../components/MoreContent";
 
 type Props = {
@@ -36,6 +33,7 @@ interface TitleType {
 
 const PageBlog = ({ data }: Props) => {
   const [title, setTitle] = React.useState<TitleType | null>(null);
+  const [txtBody, setTxtBody] = React.useState<string | null>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -74,12 +72,46 @@ const PageBlog = ({ data }: Props) => {
     });
   };
 
+  const createFreeTextForGoogle = () => {
+    let str = "";
+    data?.data["blog-body"].forEach((each) => {
+      if (each.text && each.text !== "") {
+        str = str + each.text + " ";
+      }
+    });
+    setTxtBody(str);
+  };
   React.useEffect(() => {
     if (data && data.data["blog-title"]) {
       toggleLoading(false);
       cutupTitle();
+      createFreeTextForGoogle();
     }
   }, [data]);
+
+  const jsonLd = {
+    "@context": "http://www.schema.org",
+    "@type": "Article",
+    name: headline,
+    datePublished: data?.data?.date,
+    url: `https://funk-27.co.uk/blog/${data?.uid}`,
+    sameAs: [
+      `www.funk-27.co.uk/blog/${data?.uid}`,
+      `http://funk-27.co.uk/blog/${data?.uid}`,
+    ],
+    image: data?.data["blog-image-1"].url,
+    description: data?.data["blog-body"][0]?.text,
+    articleBody: txtBody,
+    author: {
+      "@type": "Person",
+      name: data?.data?.authorTwitter[0]?.text
+        ? data?.data?.authorTwitter[0]?.text
+        : "Aid Thompsin",
+    },
+  };
+
+  console.log("blog article data", data);
+  console.log("blog article jsonLd", jsonLd);
 
   return (
     <Layout
@@ -87,7 +119,12 @@ const PageBlog = ({ data }: Props) => {
       description={data.data["blog-body"][0].text}
       seoImage={data.data["blog-image-1"].twitter.url}
     >
-      <Head>{/* meta now in layout */}</Head>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </Head>
 
       <div className="funkBlog__bgImgContainer">
         <div
