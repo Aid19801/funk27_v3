@@ -25,9 +25,22 @@ const IndexPage = () => {
       "@type": "Person",
       name: "Aid Thompsin",
     },
+    founders: [
+      {
+        "@type": "Person",
+        name: "Aid Thompsin",
+      },
+    ],
     url: "https://funk-27.co.uk",
-    sameAs: ["http://funk-27.co.uk", "www.funk-27.co.uk"],
+    sameAs: [
+      "https://twitter.com/aidthompsin",
+      "https://patreon.com/aidthompsin",
+      "https://www.buymeacoffee.com/aidthompsin",
+      "https://facebook.com/aidthompsin",
+      "https://youtube.com/adrianthompsoncomedy",
+    ],
     logo: "https://funk-27.co.uk/f27_seoImage.jpg",
+    foundingDate: "2020",
     image: "https://funk-27.co.uk/poddy.png",
     description:
       "Twice-Weekly Blogs and Podcasts for the Politics, Tech and Comedy fan.",
