@@ -5,8 +5,7 @@ import { useMainContext } from "../context/main";
 import { Box, Divider, Grid, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import { MuiDivider } from "../components/MuiDivider";
-// import { useAnalytics } from "use-analytics";
-import Head from "next/head";
+// import Head from "next/head";
 
 const asSeenOnImgs = [
   "https://cdn-radiotime-logos.tunein.com/s17569g.png",
@@ -20,10 +19,6 @@ export const AboutPage = () => {
   const { toggleLoading } = useMainContext();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  // const { page } = useAnalytics();
-  React.useEffect(() => {
-    // page();
-  }, []);
   toggleLoading(false);
   return (
     <Layout

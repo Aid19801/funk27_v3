@@ -20,6 +20,11 @@ const IndexPage = () => {
     "@type": "Organization",
     name: "Funk-27",
     alternateName: "F27",
+    datePublished: "2022-02-25",
+    author: {
+      "@type": "Person",
+      name: "Aid Thompsin",
+    },
     url: "https://funk-27.co.uk",
     sameAs: ["http://funk-27.co.uk", "www.funk-27.co.uk"],
     logo: "https://funk-27.co.uk/f27_seoImage.jpg",

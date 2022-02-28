@@ -10,7 +10,6 @@ import {
   Card,
   Divider,
   Grid,
-  Grow,
   Typography,
   useMediaQuery,
 } from "@mui/material";
@@ -109,9 +108,6 @@ const PageBlog = ({ data }: Props) => {
         : "Aid Thompsin",
     },
   };
-
-  console.log("blog article data", data);
-  console.log("blog article jsonLd", jsonLd);
 
   return (
     <Layout

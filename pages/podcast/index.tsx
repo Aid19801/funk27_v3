@@ -38,8 +38,8 @@ const PagePodcastIndex = ({ data }: Props) => {
 
   const jsonLd = {
     "@context": "http://www.schema.org",
-    "@type": "RadioEpisode",
-    name: "Podcast",
+    "@type": "TVSeries",
+    name: "Aid Thompsin & Other Disappointments",
     alternateName: "AT // OD Podcast",
     url: "https://funk-27.co.uk/podcast",
     sameAs: ["http://funk-27.co.uk/podcast", "www.funk-27.co.uk/podcast"],
@@ -47,8 +47,6 @@ const PagePodcastIndex = ({ data }: Props) => {
     image: data.twitter_image.url,
     description: "Home of the Aid Thompsin and Other Disappointments podcast.",
   };
-
-  console.log("podc index data", data);
 
   return (
     <Layout

@@ -60,10 +60,29 @@ const PagePodcast = ({ data }: Props) => {
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const { toggleLoading } = useMainContext();
 
+  const jsonLd = {
+    "@context": "http://www.schema.org",
+    "@type": "TVEpisode",
+    name: data?.title1[0].text,
+    url: `https://funk-27.co.uk/podcast/${data?.episode_slug[0].text}`,
+    sameAs: [
+      `www.funk-27.co.uk/podcast/${data?.episode_slug[0].text}`,
+      `http://funk-27.co.uk/podcast/${data?.episode_slug[0].text}`,
+    ],
+    image: data["podc_ep_twitter_img"]?.url,
+    description: data?.description[0].text,
+    author: {
+      "@type": "Person",
+      name: "Aid Thompsin",
+    },
+  };
+
   React.useEffect(() => {
     if (data) {
       toggleLoading(false);
     }
+    console.log("data ", data);
+    console.log("jsonLd ", jsonLd);
   }, [data]);
   return (
     <Layout
