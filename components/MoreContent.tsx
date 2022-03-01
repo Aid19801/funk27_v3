@@ -12,7 +12,8 @@ const MoreContent = () => {
   const [shuffledContent, setShuffledContent] = React.useState(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isThanksPage = window && window.location.href.includes("/thanks");
+  const isThanksPage =
+    process?.browser && window && window.location.href.includes("/thanks");
   React.useEffect(() => {
     const arr = hardcodeContent
       .map((value) => ({ value, sort: Math.random() }))
