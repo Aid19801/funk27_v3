@@ -18,6 +18,7 @@ import Image from "next/image";
 import { Facebook, Podcasts, YouTube } from "@mui/icons-material";
 import Head from "next/head";
 import { fireEvent } from "../../utils/ga";
+// import ProgressiveImage from "../../components/ProgressiveImage";
 type Props = {
   data: any;
 };
@@ -90,6 +91,17 @@ const PagePodcast = ({ data }: Props) => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
+      {/* <Box sx={{ width: "1000px", height: "1000px" }}>
+        <ProgressiveImage
+          alt="woman"
+          loadingSrc={
+            "https://images.pexels.com/photos/2177009/pexels-photo-2177009.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=5"
+          }
+          src={
+            "https://images.pexels.com/photos/2177009/pexels-photo-2177009.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+          }
+        />
+      </Box> */}
       <Typography
         variant="h1"
         color="secondary"
@@ -297,7 +309,7 @@ export async function getServerSideProps(context: any) {
   const thirdSeason = allPodcastData.data.body[2].items;
   const all = [...firstSeason, ...secondSeason, ...thirdSeason];
 
-  console.log("PODCAST PAGE DATA ", all[0].episode_slug);
+  // console.log("PODCAST PAGE DATA ", all[0].episode_slug);
   const data = all.filter(
     (each) => each.episode_slug[0].text === context.params.id
   )[0];

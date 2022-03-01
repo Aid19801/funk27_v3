@@ -5,6 +5,9 @@ import { useMainContext } from "../context/main";
 import { Box, Divider, Grid, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import { MuiDivider } from "../components/MuiDivider";
+// import ProgressiveImage from "../components/LazyImage";
+import { FadeUp } from "../components/FadeUp";
+import ProgressiveImage from "../components/ProgressiveImage";
 
 const asSeenOnImgs = [
   "https://cdn-radiotime-logos.tunein.com/s17569g.png",
@@ -39,14 +42,16 @@ export const AboutPage = () => {
           </Box>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Typography
-            variant="body1"
-            sx={{ fontSize: isMobile ? 30 : 40, color: "darkgrey" }}
-          >
-            Funk-27 was the brainchild of London-based Software Engineer, Adrian
-            Thompson. In fact, that's me. I don't know why I'm talking about
-            myself in the third person.
-          </Typography>
+          <FadeUp>
+            <Typography
+              variant="body1"
+              sx={{ fontSize: isMobile ? 30 : 40, color: "darkgrey" }}
+            >
+              Funk-27 was the brainchild of London-based Software Engineer,
+              Adrian Thompson. In fact, that's me. I don't know why I'm talking
+              about myself in the third person.
+            </Typography>
+          </FadeUp>
           <Divider sx={{ my: 2 }} />
           <Typography
             variant="body1"
@@ -67,13 +72,23 @@ export const AboutPage = () => {
               alignItems: "center",
             }}
           >
-            <Image
+            <Box sx={{ width: "100%", height: "500px" }}>
+              <ProgressiveImage
+                loadingSrc={
+                  "https://images.pexels.com/photos/2177009/pexels-photo-2177009.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=5"
+                }
+                src="/shedShot.png"
+                alt="shed cabin studio"
+              />
+            </Box>
+            {/* <Image
               className="rounded-corners"
               alt="aid thompsin profile picture"
               height={600}
               width={900}
               src="/shedShot.png"
-            />
+            /> */}
+
             <Typography
               variant="body1"
               fontFamily="monospace"
@@ -148,6 +163,14 @@ export const AboutPage = () => {
               width={386}
               src="/me_mob.png"
             />
+
+            {/* <ProgressiveImage
+              // @ts-ignore
+              className={"cover"}
+              alt={"woman"}
+              overlaySrc={"/me_blur.png"}
+              src={"/me_mob.png"}
+            /> */}
             <Typography
               variant="body1"
               fontFamily="monospace"
