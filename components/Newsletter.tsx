@@ -26,7 +26,7 @@ const Newsletter = () => {
         alignItems: "center",
       }}
     >
-      <Link href="https://google.com">
+      <Link href="/register-newsletter">
         <a target="_blank">
           <Typography
             variant="body1"

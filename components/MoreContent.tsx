@@ -24,7 +24,11 @@ const MoreContent = () => {
   }, []);
 
   return (
-    <Grid container spacing={2} sx={{ mt: 1, px: 4 }}>
+    <Grid
+      container
+      spacing={2}
+      sx={{ mt: 1, px: 4, ml: isMobile ? 0 : "inherit" }}
+    >
       <Grid item xs={12}>
         <Typography
           variant="body1"
