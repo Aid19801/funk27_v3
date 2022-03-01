@@ -18,7 +18,9 @@ export const ProgressiveImage = ({
 
   const handleOnLoad = () => {
     if (!hasLoaded) {
-      setHasLoaded(true);
+      setTimeout(() => {
+        setHasLoaded(true);
+      }, 500);
     }
   };
 
@@ -57,6 +59,7 @@ export const ProgressiveImage = ({
           left: 0,
           maxWidth: "100%",
           minHeight: "100%",
+          minWidth: "100%",
           objectFit: "cover",
         }}
       />

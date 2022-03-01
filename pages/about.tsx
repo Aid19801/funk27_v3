@@ -77,7 +77,7 @@ export const AboutPage = () => {
                 loadingSrc={
                   "https://images.pexels.com/photos/2177009/pexels-photo-2177009.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=5"
                 }
-                src="/shedShot.png"
+                src="/shedShot.jpg"
                 alt="shed cabin studio"
               />
             </Box>
@@ -156,21 +156,23 @@ export const AboutPage = () => {
               alignItems: "center",
             }}
           >
-            <Image
+            {/* <Image
               className="rounded-corners"
               alt="aid thompsin profile picture"
               height={640}
               width={386}
               src="/me_mob.png"
-            />
-
-            {/* <ProgressiveImage
-              // @ts-ignore
-              className={"cover"}
-              alt={"woman"}
-              overlaySrc={"/me_blur.png"}
-              src={"/me_mob.png"}
+              placeholder="blur"
+              blurDataURL="/me_blur.png"
             /> */}
+
+            <Box sx={{ width: "386px", height: "640px" }}>
+              <ProgressiveImage
+                src="/me_mob.png"
+                loadingSrc="/me_blur.png"
+                alt="picture of aid thompsin face"
+              />
+            </Box>
             <Typography
               variant="body1"
               fontFamily="monospace"
