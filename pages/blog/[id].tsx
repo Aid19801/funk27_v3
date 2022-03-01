@@ -387,6 +387,7 @@ const PageBlog = ({ data }: Props) => {
                 </Link>
               )}
             </Box>
+            <MuiDivider straight prim />
           </Card>
         </Grid>
 

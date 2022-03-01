@@ -3,8 +3,6 @@ import * as React from "react";
 type ProgressiveImageProps = {
   src: string;
   loadingSrc?: string;
-  //   height?: number;
-  //   width?: number;
   alt?: string;
 };
 
@@ -31,8 +29,6 @@ export const ProgressiveImage = ({
     }
   }, []);
 
-  console.log("hasLoaded => ", hasLoaded);
-
   return (
     <div
       className="progressiveImage__container"
@@ -41,7 +37,6 @@ export const ProgressiveImage = ({
         width: "100%",
         minHeight: "100%",
         height: "auto",
-        // border: "2px solid red",
         contain: "content",
       }}
     >

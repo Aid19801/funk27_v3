@@ -1,22 +1,18 @@
 import * as React from "react";
 import fetch from "node-fetch";
 import { getEndpoint, createClient } from "@prismicio/client";
-import { Box, Grid, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, Grid, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { ContentCard } from "./ContentCard";
 import { BlogCard } from "./BlogCard";
 import { hardcodeContent } from "../utils/more-content";
+import Newsletter from "./Newsletter";
 
 const MoreContent = () => {
   const [shuffledContent, setShuffledContent] = React.useState(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
-  // let shuffledContent = hardcodeContent
-  //   .map((value) => ({ value, sort: Math.random() }))
-  //   .sort((a, b) => a.sort - b.sort)
-  //   .map(({ value }) => value);
-
+  const isThanksPage = window && window.location.href.includes("/thanks");
   React.useEffect(() => {
     const arr = hardcodeContent
       .map((value) => ({ value, sort: Math.random() }))
@@ -83,6 +79,11 @@ const MoreContent = () => {
             </React.Fragment>
           );
         })}
+
+      <Grid xs={12}>
+        <Box sx={{ mt: 6 }} />
+        {!isThanksPage && <Newsletter />}
+      </Grid>
     </Grid>
   );
 };
