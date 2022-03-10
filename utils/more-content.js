@@ -49,7 +49,8 @@ export const hardcodeContent = [
     title: "#14 // Jemma Forte",
     description:
       "Jemma Forte is a broadcast journalist and author. Tonight she joins me to discuss how Media has changed and what the future holds for post truth, fake news, clickbait journalism.",
-    bgImgSrc: "https://i.ytimg.com/vi/cpi637I95mQ/maxresdefault.jpg",
+    bgImgSrc:
+      "https://jemmaforte.com/wp-content/uploads/2020/03/Jemma-Forte-telly-shot-e1583512719128.jpg",
     profileImgSrc:
       "https://jemmaforte.com/wp-content/uploads/2020/03/about-jemma-forte-rotated.jpg",
     imgAlt: "14 jemma forte at od podcast",
@@ -91,7 +92,7 @@ export const hardcodeContent = [
   },
   {
     type: "podcast",
-    title: "#63 Natalie Finn",
+    title: "#63 // Natalie Finn",
     description:
       "Natalie Finn is a journalist whose work spans People Magazine, NBC and E! News in Los Angeles. Tonight she joins me to discuss U.S. Politics, Tribalism and more..",
     bgImgSrc:

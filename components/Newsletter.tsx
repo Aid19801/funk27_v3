@@ -43,7 +43,7 @@ const Newsletter = () => {
               },
             }}
           >
-            Grab the weekly newsletter
+            Grab the new weekly newsletter
           </Typography>
         </a>
       </Link>
