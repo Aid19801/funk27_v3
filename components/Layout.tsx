@@ -49,7 +49,7 @@ const Layout = ({
         <meta name="description" content={description} />
 
         {/* Facebook */}
-        <meta property="og:title" content={`Funk-27 | ${title}`} key="title" />
+        <meta property="og:title" content={title} key="title" />
         <meta
           property="og:description"
           content={description}
@@ -69,7 +69,7 @@ const Layout = ({
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@aidThompsin" />
-        <meta name="twitter:title" content={`Funk-27 | ${title}`} />
+        <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:creator" content="@aidThompsin" />
 
