@@ -8,6 +8,7 @@ import { useMainContext } from "../../context/main";
 import { Grid, Typography, useMediaQuery } from "@mui/material";
 import { BlogCard } from "../../components/BlogCard";
 import Head from "next/head";
+import { MuiDivider } from "../../components/MuiDivider";
 
 type Props = {
   data: any;
@@ -36,6 +37,7 @@ const PageBlogIndex = ({ data }: Props) => {
       "Join me as I attempt to make sense of the senseless with this passable, weekly blog covering Politics, Tech and Dystopia - that I am confident you will find at least 40% enjoyment from.",
   };
 
+  console.log("data blogs", data.blogs);
   return (
     <Layout
       title="Blog"
@@ -61,7 +63,50 @@ const PageBlogIndex = ({ data }: Props) => {
       </Typography>
 
       <Grid container spacing={2}>
-        {data.blogs.map((each: any) => {
+        <Grid item xs={12} sm={10} md={6}>
+          <BlogCard
+            slug={data.blogs[0].blog.uid}
+            title={data.blogs[0].blog.data["blog-title"][0].text}
+            comments={0}
+            imgSrc={data.blogs[0].blog.data["blog-image-1"].twitter.url}
+            imgAlt={data.blogs[0].blog.data["blog-image-1"].alt}
+            date={data.blogs[0].blog.first_publication_date}
+          />
+        </Grid>
+        <Grid item xs={12} sm={10} md={6}>
+          <BlogCard
+            slug={data.blogs[1].blog.uid}
+            title={data.blogs[1].blog.data["blog-title"][0].text}
+            comments={0}
+            imgSrc={data.blogs[1].blog.data["blog-image-1"].twitter.url}
+            imgAlt={data.blogs[1].blog.data["blog-image-1"].alt}
+            date={data.blogs[1].blog.first_publication_date}
+          />
+        </Grid>
+
+        <MuiDivider left prim />
+        {data.blogs.slice(2, 8).map((each: any) => {
+          return (
+            <Grid
+              item
+              xs={12}
+              sm={10}
+              md={4}
+              key={each.blog.data["blog-title"][0].text}
+            >
+              <BlogCard
+                slug={each.blog.uid}
+                title={each.blog.data["blog-title"][0].text}
+                comments={0}
+                imgSrc={each.blog.data["blog-image-1"].twitter.url}
+                imgAlt={each.blog.data["blog-image-1"].alt}
+                date={each.blog.first_publication_date}
+              />
+            </Grid>
+          );
+        })}
+        <MuiDivider prim right />
+        {data.blogs.slice(8, data.blogs.length).map((each: any) => {
           return (
             <Grid
               item
