@@ -1,7 +1,11 @@
 import React from "react";
-import { Box, CircularProgress, LinearProgress } from "@mui/material";
+import { Box, LinearProgress } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 
 export const Modal = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box
       sx={{
@@ -16,7 +20,7 @@ export const Modal = () => {
         alignItems: "center",
       }}
     >
-      <LinearProgress sx={{ width: "70%" }} />
+      <LinearProgress sx={{ width: isMobile ? "70%" : "10%" }} />
     </Box>
   );
 };

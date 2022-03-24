@@ -26,12 +26,10 @@ export default function ContactForm({
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const { toggleLoading } = useMainContext();
 
   const onSubmit = async (data) => {
     try {

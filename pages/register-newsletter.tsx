@@ -17,7 +17,6 @@ import { MuiDivider } from "../components/MuiDivider";
 import ContactForm from "../components/ContactForm";
 import Head from "next/head";
 import Router, { useRouter } from "next/router";
-// const REG_API = "http://localhost:5001/register-newsletter";
 const REG_API = "https://trollboard-api.herokuapp.com/register-newsletter";
 
 export const RegisterNewsletterPage = () => {

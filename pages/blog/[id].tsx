@@ -20,6 +20,7 @@ import { Facebook, Twitter } from "@mui/icons-material";
 import Head from "next/head";
 import MoreContent from "../../components/MoreContent";
 import Link from "next/link";
+// import { useElementOnScreen } from "../../hooks/useElementOnScreen";
 
 type Props = {
   data: any;
@@ -34,11 +35,23 @@ interface TitleType {
 const PageBlog = ({ data }: Props) => {
   const [title, setTitle] = React.useState<TitleType | null>(null);
   const theme = useTheme();
+
+  const bottomSectionRef = React.useRef<HTMLDivElement>(null);
+  // const isVisible = useElementOnScreen(
+  //   {
+  //     root: null,
+  //     rootMargin: "-100px",
+  //     threshold: 0.3,
+  //   },
+  //   bottomSectionRef,
+  //   true
+  // );
+
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   let bodyContent = [];
 
-  data.data["blog-body"].forEach((eachPtag) => {
+  data.data["blog-body"].forEach((eachPtag: any) => {
     if (eachPtag.text !== "") {
       bodyContent.push(eachPtag);
     } else {
@@ -80,6 +93,7 @@ const PageBlog = ({ data }: Props) => {
     });
     return str;
   };
+
   React.useEffect(() => {
     if (data && data.data["blog-title"]) {
       toggleLoading(false);
@@ -232,7 +246,6 @@ const PageBlog = ({ data }: Props) => {
             })}
         </Grid>
       </Grid>
-
       <Grid container spacing={2}>
         <Grid item xs={12} md={12}>
           <Card
@@ -262,15 +275,18 @@ const PageBlog = ({ data }: Props) => {
                 mb: 2,
               }}
             >
-              <BadgeAvatar
-                src={
-                  data?.data?.author_image?.url
-                    ? data.data.author_image.url
-                    : "/me.jpeg"
-                }
-                height={60}
-                width={60}
-              />
+              <div>
+                <BadgeAvatar
+                  src={
+                    data?.data?.author_image?.url
+                      ? data.data.author_image.url
+                      : "/me.jpeg"
+                  }
+                  height={60}
+                  width={60}
+                />
+              </div>
+
               <Box
                 sx={{
                   display: "flex",
@@ -303,7 +319,12 @@ const PageBlog = ({ data }: Props) => {
               </Box>
             </Box>
 
-            <Divider sx={{ width: isMobile ? "90%" : "80%", mb: 4 }} />
+            <Divider
+              sx={{
+                width: isMobile ? "90%" : "80%",
+                mb: 4,
+              }}
+            />
 
             <Box
               sx={{
@@ -346,6 +367,7 @@ const PageBlog = ({ data }: Props) => {
             <Divider sx={{ width: isMobile ? "90%" : "80%", mb: 4 }} />
 
             <MuiDivider left prim />
+
             <Box
               className="funkBlog__mainContent"
               sx={{
@@ -362,6 +384,8 @@ const PageBlog = ({ data }: Props) => {
 
               <MuiDivider left prim />
 
+              <div ref={bottomSectionRef} />
+
               <BadgeAvatar
                 src={
                   data?.data?.author_image?.url
@@ -372,7 +396,16 @@ const PageBlog = ({ data }: Props) => {
                 width={60}
               />
 
-              <Typography variant="h6">
+              <Typography
+                variant="h6"
+                sx={{
+                  transition: "300ms",
+                  opacity: 1,
+                  transitionDelay: "300ms",
+                  transitionTimingFunction: "ease-in",
+                  textAlign: isMobile ? "center" : "inherit",
+                }}
+              >
                 {data?.data?.authorBio[0]?.text ||
                   "Aid Thompsin is a political hector, sometime-standup comedian and exhausted father."}
               </Typography>
@@ -391,7 +424,16 @@ const PageBlog = ({ data }: Props) => {
           </Card>
         </Grid>
 
-        <MoreContent />
+        <div
+          style={{
+            transition: "300ms",
+            opacity: 1,
+            transitionDelay: "400ms",
+            transitionTimingFunction: "ease-in",
+          }}
+        >
+          <MoreContent />
+        </div>
       </Grid>
     </Layout>
   );

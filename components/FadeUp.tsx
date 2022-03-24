@@ -6,7 +6,7 @@ export const FadeUp = ({ children }) => {
   const startFadeUp = () => {
     setTimeout(() => {
       //@ts-ignore
-      ref.current.style.opacity = 1;
+      ref?.current?.style?.opacity = 1;
     }, 2000);
   };
   React.useEffect(() => {

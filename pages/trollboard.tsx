@@ -86,9 +86,6 @@ const PageTrollboard: React.FC = () => {
   React.useEffect(() => {
     fetchAllComments();
   }, []);
-  React.useEffect(() => {
-    // console.log("comments back ", comments);
-  }, [comments]);
 
   return (
     <>
