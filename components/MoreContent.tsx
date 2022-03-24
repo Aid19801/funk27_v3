@@ -1,7 +1,7 @@
 import * as React from "react";
 import fetch from "node-fetch";
 import { getEndpoint, createClient } from "@prismicio/client";
-import { Box, Button, Grid, Typography, useMediaQuery } from "@mui/material";
+import { Box, Grid, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { ContentCard } from "./ContentCard";
 import { BlogCard } from "./BlogCard";
@@ -59,7 +59,7 @@ const MoreContent = () => {
                     // px: 1,
                   }}
                 >
-                  {each.type === "blog" ? (
+                  {each.type === "blog" && (
                     <BlogCard
                       title={each.title}
                       slug={each.slug}
@@ -68,11 +68,24 @@ const MoreContent = () => {
                       imgSrc={each.imgSrc}
                       extendedStay
                     />
-                  ) : (
+                  )}
+                  {each.type === "podcast" && (
                     <ContentCard
                       title={each.title}
                       description={each.description}
                       backgroundArtworkSrc={each.bgImgSrc}
+                      profileImgSrc={each.profileImgSrc}
+                      artworkAlt={each.imgAlt}
+                      slug={each.slug}
+                      extendedStay
+                    />
+                  )}
+                  {each.type === "externalLink" && (
+                    <ContentCard
+                      title={each.title}
+                      description={each.description}
+                      descriptionLength={150}
+                      backgroundArtworkSrc={each.imgSrc}
                       profileImgSrc={each.profileImgSrc}
                       artworkAlt={each.imgAlt}
                       slug={each.slug}

@@ -37,6 +37,9 @@ export const ContentCard: React.FC<ContentCardProps> = ({
   const { toggleLoading } = useMainContext();
 
   const handleSelectCard = () => {
+    if (slug.includes("http")) {
+      return;
+    }
     toggleLoading(true);
     fireEvent("selected_podcast", {
       event_category: "podcasts",
@@ -46,46 +49,50 @@ export const ContentCard: React.FC<ContentCardProps> = ({
     });
   };
 
+  const dynamicSlug = slug.includes("http") ? slug : "/podcast/[id]";
+  const dynamicAs = slug.includes("http") ? null : "/podcast/[id]";
   return (
     <Card sx={{ minHeight: 300 }}>
       <div onClick={() => handleSelectCard()}>
-        <Link href="/podcast/[id]" as={`/podcast/${slug}`}>
-          <Box>
-            <CardMedia
-              component="img"
-              alt={artworkAlt}
-              height="140"
-              image={backgroundArtworkSrc || "/poddy.png"}
-              sx={{ filter: "grayscale(100%)", opacity: 0.4 }}
-            />
-            <CardContent sx={{ pb: 0 }}>
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="div"
-                color="primary"
-                sx={{ position: "relative" }}
-              >
-                {title.toLocaleLowerCase()}
-                <Box sx={{ position: "absolute", bottom: "100%" }}>
-                  <BadgeAvatar src={profileImgSrc} height={100} width={100} />
-                </Box>
-              </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                sx={{ maxWidth: 500 }}
-              >
-                {description.length > descriptionLength
-                  ? description.slice(0, descriptionLength) + "..."
-                  : description}
-              </Typography>
-            </CardContent>
-            <CardActions sx={{ mt: firstBatch ? 2 : 0 }}>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Box>
+        <Link href={dynamicSlug} as={dynamicAs}>
+          <a target="blank">
+            <Box>
+              <CardMedia
+                component="img"
+                alt={artworkAlt}
+                height="140"
+                image={backgroundArtworkSrc || "/poddy.png"}
+                sx={{ filter: "grayscale(100%)", opacity: 0.4 }}
+              />
+              <CardContent sx={{ pb: 0 }}>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  color="primary"
+                  sx={{ position: "relative" }}
+                >
+                  {title.toLocaleLowerCase()}
+                  <Box sx={{ position: "absolute", bottom: "100%" }}>
+                    <BadgeAvatar src={profileImgSrc} height={100} width={100} />
+                  </Box>
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ maxWidth: 500 }}
+                >
+                  {description.length > descriptionLength
+                    ? description.slice(0, descriptionLength) + "..."
+                    : description}
+                </Typography>
+              </CardContent>
+              <CardActions sx={{ mt: firstBatch ? 2 : 0 }}>
+                <Button size="small">Share</Button>
+                <Button size="small">Learn More</Button>
+              </CardActions>
+            </Box>
+          </a>
         </Link>
       </div>
     </Card>
