@@ -1,43 +1,43 @@
 export const hardcodeContent = [
-  // {
-  //   type: "externalLink",
-  //   title: "The War On Women By Healthcare",
-  //   description:
-  //     "Medical misogyny is a phrase that every single woman will have an intimate relationship with, because misogyny is as closely interwoven into healthcare as it is every other area of society: sometimes it’s a whisper in a corridor, sometimes it’s a blatant dismissal- whatever form this many headed hydra takes, misogyny in modern medicine is clearly a problem and must be tackled: but first it must be brought out into the light to be seen by those who would plead ignorance.",
-  //   date: "Thu Mar 24 2022",
-  //   imgSrc:
-  //     "https://politicallyenraged.files.wordpress.com/2022/03/pexels-photo-5452201.jpeg?w=825&h=510&crop=1",
-  //   profileImgSrc:
-  //     "https://daviemoo.files.wordpress.com/2021/01/image.jpg?w=200",
-  //   slug: "https://politicallyenraged.com/2022/03/24/the-war-on-women-by-healthcare/",
-  //   imgAlt: "POC Doctor in NHS",
-  // },
-  // {
-  //   type: "externalLink",
-  //   title: "How did the UK go from leaders in the world to Putin’s playthings",
-  //   description:
-  //     "The Russia report, whilst still redacted and once liberally flavoured with context from political experts like Peter Oborne in his book “The Assault On Truth”, gives a damning indictment and insight into the eyes-wide-open approach of the UK government when it comes to Russian meddling in our democracy.",
-  //   date: "Tue Mar 10 2022",
-  //   imgSrc:
-  //     "https://politicallyenraged.files.wordpress.com/2022/03/pexels-photo-5574620.jpeg?w=1650&h=1020&crop=1",
-  //   profileImgSrc:
-  //     "https://daviemoo.files.wordpress.com/2021/01/image.jpg?w=200",
-  //   slug: "https://politicallyenraged.com/2022/03/10/how-did-the-uk-go-from-leaders-in-the-world-to-putins-playthings",
-  //   imgAlt: "London",
-  // },
-  // {
-  //   type: "externalLink",
-  //   title: "What would a world without “woke” culture be like?",
-  //   description:
-  //     "Many of us who are labelled “woke” already live in a world suffused with anti minority sentiment- a cursory scroll of someone like Katy Montgomerie’s twitter shows the relentless onward rumble of abuse that she faces from those who are mildly uncomfortable with transgender women, to those who outwardly call for the arrest and forced de-transitioning of anyone transgender...",
-  //   date: "Tue Mar 10 2022",
-  //   imgSrc:
-  //     "https://politicallyenraged.files.wordpress.com/2022/03/pexels-photo-945982.jpeg?w=1650&h=1020&crop=1",
-  //   profileImgSrc:
-  //     "https://daviemoo.files.wordpress.com/2021/01/image.jpg?w=200",
-  //   slug: "https://politicallyenraged.com/2022/03/07/what-would-a-world-without-woke-culture-be-like/",
-  //   imgAlt: "people in crowds",
-  // },
+  {
+    type: "externalLink",
+    title: "The War On Women By Healthcare",
+    description:
+      "Medical misogyny is a phrase that every single woman will have an intimate relationship with, because misogyny is as closely interwoven into healthcare as it is every other area of society: sometimes it’s a whisper in a corridor, sometimes it’s a blatant dismissal- whatever form this many headed hydra takes, misogyny in modern medicine is clearly a problem and must be tackled: but first it must be brought out into the light to be seen by those who would plead ignorance.",
+    date: "Thu Mar 24 2022",
+    imgSrc:
+      "https://politicallyenraged.files.wordpress.com/2022/03/pexels-photo-5452201.jpeg?w=825&h=510&crop=1",
+    profileImgSrc:
+      "https://daviemoo.files.wordpress.com/2021/01/image.jpg?w=200",
+    slug: "https://politicallyenraged.com/2022/03/24/the-war-on-women-by-healthcare/",
+    imgAlt: "POC Doctor in NHS",
+  },
+  {
+    type: "externalLink",
+    title: "How did the UK go from leaders in the world to Putin’s playthings",
+    description:
+      "The Russia report, whilst still redacted and once liberally flavoured with context from political experts like Peter Oborne in his book “The Assault On Truth”, gives a damning indictment and insight into the eyes-wide-open approach of the UK government when it comes to Russian meddling in our democracy.",
+    date: "Tue Mar 10 2022",
+    imgSrc:
+      "https://politicallyenraged.files.wordpress.com/2022/03/pexels-photo-5574620.jpeg?w=1650&h=1020&crop=1",
+    profileImgSrc:
+      "https://daviemoo.files.wordpress.com/2021/01/image.jpg?w=200",
+    slug: "https://politicallyenraged.com/2022/03/10/how-did-the-uk-go-from-leaders-in-the-world-to-putins-playthings",
+    imgAlt: "London",
+  },
+  {
+    type: "externalLink",
+    title: "What would a world without “woke” culture be like?",
+    description:
+      "Many of us who are labelled “woke” already live in a world suffused with anti minority sentiment- a cursory scroll of someone like Katy Montgomerie’s twitter shows the relentless onward rumble of abuse that she faces from those who are mildly uncomfortable with transgender women, to those who outwardly call for the arrest and forced de-transitioning of anyone transgender...",
+    date: "Tue Mar 10 2022",
+    imgSrc:
+      "https://politicallyenraged.files.wordpress.com/2022/03/pexels-photo-945982.jpeg?w=1650&h=1020&crop=1",
+    profileImgSrc:
+      "https://daviemoo.files.wordpress.com/2021/01/image.jpg?w=200",
+    slug: "https://politicallyenraged.com/2022/03/07/what-would-a-world-without-woke-culture-be-like/",
+    imgAlt: "people in crowds",
+  },
 
   {
     type: "blog",

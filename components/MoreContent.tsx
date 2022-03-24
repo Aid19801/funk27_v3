@@ -4,6 +4,7 @@ import { getEndpoint, createClient } from "@prismicio/client";
 import { Box, Grid, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { ContentCard } from "./ContentCard";
+import { ExternalContentCard } from "./ExternalContentCard";
 import { BlogCard } from "./BlogCard";
 import { hardcodeContent } from "../utils/more-content";
 import Newsletter from "./Newsletter";
@@ -81,7 +82,7 @@ const MoreContent = () => {
                     />
                   )}
                   {each.type === "externalLink" && (
-                    <ContentCard
+                    <ExternalContentCard
                       title={each.title}
                       description={each.description}
                       descriptionLength={150}
