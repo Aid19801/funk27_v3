@@ -155,4 +155,76 @@ export const hardcodeContent = [
   },
 ];
 
+export const popularPodcasts = [
+  {
+    type: "podcast",
+    title: "#14 // Jemma Forte",
+    description:
+      "Jemma Forte is a broadcast journalist and author. Tonight she joins me to discuss how Media has changed and what the future holds for post truth, fake news, clickbait journalism.",
+    bgImgSrc:
+      "https://jemmaforte.com/wp-content/uploads/2020/03/Jemma-Forte-telly-shot-e1583512719128.jpg",
+    profileImgSrc:
+      "https://jemmaforte.com/wp-content/uploads/2020/03/about-jemma-forte-rotated.jpg",
+    imgAlt: "14 jemma forte at od podcast",
+    slug: "episode-14-jemma-forte",
+  },
+  {
+    type: "podcast",
+    title: "#42 // Otto English",
+    description: `Andrew Scott, known as "Otto English" is a former playwright, journalist and now published author; Check out his book "Fake History" now.`,
+    bgImgSrc:
+      "https://funk-27.co.uk/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Ffunk27%2Ffde6517c-dc66-48bc-8b29-368142550a08_fckthisweek%2B%25284%2529.jpg%3Fauto%3Dcompress%2Cformat%26rect%3D43%2C0%2C1836%2C1080%26w%3D680%26h%3D400&w=1920&q=75",
+    profileImgSrc:
+      "https://upload.wikimedia.org/wikipedia/commons/7/79/Otto_English.jpg",
+    imgAlt: "42 at od otto english",
+    slug: "episode-42-Otto-English",
+  },
+  {
+    type: "podcast",
+    title: "#51 // Dane Baptiste",
+    description:
+      "Dane Baptiste is a stand-up comedian and comedy actor. His shows Bamous and Sunny-D have been on BBC3 and iPlayer and his award winning standup comedy has featured on Live At The Apollo.",
+    bgImgSrc:
+      "https://images.prismic.io/funk27/91358a9a-d5a2-441f-b388-31e856377ab5_fckthisweek.jpg?auto=compress,format&rect=43,0,1836,1080&w=680&h=400",
+    profileImgSrc:
+      "https://images.prismic.io/funk27/d564e307-ba98-464c-a625-8a1ef5b24eb3_dane.png?auto=compress,format&rect=100,0,598,598&w=90&h=90",
+    imgAlt: "51 episode dane baptiste",
+    slug: "episode-51-dane-baptiste",
+  },
+  {
+    type: "podcast",
+    title: "#47 // Jim Felton",
+    description: `James Felton is author of the books "52 Times Britain Was a Bellend", "SunBurn" an expose on the lowlights of the world's worst newspaper - and the new release "You Don't Want To Know".`,
+    bgImgSrc:
+      "https://images.prismic.io/funk27/05fd0e1d-b15a-4314-a071-71ab66342985_fckthisweek+%2818%29.jpg?auto=compress,format&rect=43,0,1836,1080&w=680&h=400",
+    profileImgSrc:
+      "https://images.prismic.io/funk27/c07d7955-affe-48fd-ab55-734d64a1169e_felton.jpeg?auto=compress,format&rect=0,0,400,400&w=90&h=90",
+    imgAlt: "jim felton podcast episode",
+    slug: "episode-47-jim-felton",
+  },
+  {
+    type: "podcast",
+    title: "#63 // Natalie Finn",
+    description:
+      "Natalie Finn is a journalist whose work spans People Magazine, NBC and E! News in Los Angeles. Tonight she joins me to discuss U.S. Politics, Tribalism and more..",
+    bgImgSrc:
+      "https://images.prismic.io/funk27/de8992da-720a-4489-a4b1-558990117f85_63.jpeg?auto=compress,format&rect=29,0,1224,720&w=680&h=400",
+    profileImgSrc:
+      "https://images.prismic.io/funk27/753f9063-722c-4050-842d-5abc247ad5e9_natalieFinn.jpg?auto=compress,format&rect=0,0,256,256&w=90&h=90",
+    imgAlt: "Natalie Finn looking smart",
+    slug: "episode-63-natalie-finn",
+  },
+  {
+    type: "podcast",
+    title: "#49 // SuperTanskiii & Daviemoo",
+    description: `Supertanskiii and DavieMoo are progressive and campaigning voices on Tiktok and Twitter. This was an "emergency podcast" in ligh...`,
+    bgImgSrc:
+      "https://images.prismic.io/funk27/4720b16b-0882-4323-9f5a-3d8c90660c09_studioartwork.jpg?auto=compress,format&rect=43,0,1836,1080&w=680&h=400",
+    profileImgSrc:
+      "https://images.prismic.io/funk27/6757d662-d814-4250-878b-8d45911c0698_hjjhhjhhj.jpeg?auto=compress,format&rect=0,0,225,225&w=90&h=90",
+    imgAlt: "Supertanskiii looking upwards",
+    slug: "episode-49-tan-daviemoo",
+  },
+];
+
 export const HOME_URL = "https://funk-27.co.uk";

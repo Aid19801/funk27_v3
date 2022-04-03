@@ -6,8 +6,11 @@ import Layout from "../../components/Layout";
 import { useMainContext } from "../../context/main";
 import {
   Box,
+  Button,
   Card,
+  CardActions,
   CardContent,
+  CardMedia,
   Grid,
   Grow,
   Typography,
@@ -18,6 +21,9 @@ import { ContentCard } from "../../components/ContentCard";
 import { MuiDivider } from "../../components/MuiDivider";
 import Link from "next/link";
 import Head from "next/head";
+import { popularPodcasts } from "../../utils/more-content";
+import { BadgeAvatar } from "../../components/Badge";
+import { FadeUp } from "../../components/FadeUp";
 
 type Props = {
   data: any;
@@ -111,8 +117,132 @@ const PagePodcastIndex = ({ data }: Props) => {
           </Grid>
         </Grow>
 
+        {data?.body[0].items.slice(2, 5).map((each, i) => {
+          return (
+            <Grow in={true} key={i}>
+              <Grid item xs={12} md={4}>
+                <ContentCard
+                  title={each.title1[0].text}
+                  description={each.description[0].text}
+                  backgroundArtworkSrc={each.podc_ep_twitter_img.url}
+                  artworkAlt={each.podc_ep_twitter_img.alt}
+                  profileImgSrc={each.guest_photo.url}
+                  slug={each.episode_slug[0].text}
+                />
+              </Grid>
+            </Grow>
+          );
+        })}
+
+        <MuiDivider prim left />
+
+        <Grow in={true}>
+          <Grid
+            item
+            xs={12}
+            sx={{
+              p: 2,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                border: "5px solid orange",
+                px: 6,
+                py: 1,
+                borderRadius: 24,
+                mb: 2,
+                color: "white",
+                textAlign: "center",
+                background: "grey",
+                // transform: "skewY(2deg)",
+                fontWeight: 800,
+              }}
+            >
+              Popular...
+            </Typography>
+            <Grid container spacing={2} sx={{ ml: "1vw" }}>
+              {popularPodcasts.slice(0, 3).map((each, i) => {
+                return (
+                  <Grid item xs={12} md={4}>
+                    <Card
+                      sx={{
+                        background: i % 2 === 0 ? "black" : "inherit",
+                        minHeight: 300,
+                        border:
+                          i % 2 === 0 ? `5px solid orange` : `5px solid black`,
+                        borderRadius: 5,
+                        transform: i % 2 === 0 ? "skewY(1deg)" : "skewY(-1deg)",
+                      }}
+                    >
+                      <div onClick={() => null}>
+                        <Link href="/podcast/[id]" as={`/podcast/${each.slug}`}>
+                          <Box>
+                            <CardMedia
+                              component="img"
+                              alt={each.imgAlt}
+                              height="140"
+                              image={each.bgImgSrc || "/poddy.png"}
+                              sx={{ filter: "grayscale(100%)", opacity: 0.4 }}
+                            />
+                            <CardContent sx={{ pb: 0 }}>
+                              <Typography
+                                gutterBottom
+                                variant="h5"
+                                component="div"
+                                color="primary"
+                                sx={{ position: "relative" }}
+                              >
+                                {each.title.toLocaleLowerCase()}
+                                <Box
+                                  sx={{
+                                    position: "absolute",
+                                    bottom: "100%",
+                                  }}
+                                >
+                                  <BadgeAvatar
+                                    src={each.profileImgSrc}
+                                    height={100}
+                                    width={100}
+                                  />
+                                </Box>
+                              </Typography>
+                              <Typography
+                                variant="body2"
+                                color="text.secondary"
+                                sx={{
+                                  maxWidth: 500,
+                                  color: i % 2 === 0 ? "white" : "grey",
+                                }}
+                              >
+                                {each.description.length > 200
+                                  ? each.description.slice(0, 200) + "..."
+                                  : each.description}
+                              </Typography>
+                            </CardContent>
+                            <CardActions>
+                              <Button size="small">Share</Button>
+                              <Button size="small">Learn More</Button>
+                            </CardActions>
+                          </Box>
+                        </Link>
+                      </div>
+                    </Card>
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </Grid>
+        </Grow>
+
+        <MuiDivider right />
+
         {data?.body[0].items
-          .slice(2, data?.body[0].items.length)
+          .slice(5, data?.body[0].items.length)
           .map((each, i) => {
             return (
               <Grow in={true} key={i}>
@@ -130,6 +260,114 @@ const PagePodcastIndex = ({ data }: Props) => {
             );
           })}
       </Grid>
+
+      <MuiDivider prim />
+
+      <Grow in={true}>
+        <Grid
+          item
+          xs={12}
+          sx={{
+            p: 2,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{
+              border: "5px solid orange",
+              px: 6,
+              py: 1,
+              borderRadius: 24,
+              mb: 2,
+              color: "white",
+              textAlign: "center",
+              background: "grey",
+              fontWeight: 800,
+            }}
+          >
+            Popular...
+          </Typography>
+          <Grid
+            container
+            spacing={2}
+            sx={{ ml: isDesktop ? "inherit" : "1vw" }}
+          >
+            {popularPodcasts.slice(3, 6).map((each, i) => {
+              return (
+                <Grid item xs={12} md={4}>
+                  <Card
+                    sx={{
+                      background: i % 2 === 0 ? "black" : "inherit",
+                      minHeight: 300,
+                      border:
+                        i % 2 === 0 ? `5px solid orange` : `5px solid black`,
+                      borderRadius: 5,
+                      transform: i % 2 === 0 ? "skewY(1deg)" : "skewY(-1deg)",
+                    }}
+                  >
+                    <div onClick={() => null}>
+                      <Link href="/podcast/[id]" as={`/podcast/${each.slug}`}>
+                        <Box>
+                          <CardMedia
+                            component="img"
+                            alt={each.imgAlt}
+                            height="140"
+                            image={each.bgImgSrc || "/poddy.png"}
+                            sx={{ filter: "grayscale(100%)", opacity: 0.4 }}
+                          />
+                          <CardContent sx={{ pb: 0 }}>
+                            <Typography
+                              gutterBottom
+                              variant="h5"
+                              component="div"
+                              color="primary"
+                              sx={{ position: "relative" }}
+                            >
+                              {each.title.toLocaleLowerCase()}
+                              <Box
+                                sx={{
+                                  position: "absolute",
+                                  bottom: "100%",
+                                }}
+                              >
+                                <BadgeAvatar
+                                  src={each.profileImgSrc}
+                                  height={100}
+                                  width={100}
+                                />
+                              </Box>
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              color="text.secondary"
+                              sx={{
+                                maxWidth: 500,
+                                color: i % 2 === 0 ? "white" : "grey",
+                              }}
+                            >
+                              {each.description.length > 200
+                                ? each.description.slice(0, 200) + "..."
+                                : each.description}
+                            </Typography>
+                          </CardContent>
+                          <CardActions>
+                            <Button size="small">Share</Button>
+                            <Button size="small">Learn More</Button>
+                          </CardActions>
+                        </Box>
+                      </Link>
+                    </div>
+                  </Card>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Grid>
+      </Grow>
 
       <MuiDivider prim />
 
