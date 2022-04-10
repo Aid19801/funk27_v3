@@ -423,18 +423,17 @@ const PageBlog = ({ data }: Props) => {
             <MuiDivider straight prim />
           </Card>
         </Grid>
-
-        <div
-          style={{
-            transition: "300ms",
-            opacity: 1,
-            transitionDelay: "400ms",
-            transitionTimingFunction: "ease-in",
-          }}
-        >
-          <MoreContent />
-        </div>
       </Grid>
+      {/* <div
+        style={{
+          transition: "300ms",
+          opacity: 1,
+          transitionDelay: "400ms",
+          transitionTimingFunction: "ease-in",
+        }}
+      >
+        <MoreContent />
+      </div> */}
     </Layout>
   );
 };
