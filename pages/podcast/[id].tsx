@@ -302,7 +302,7 @@ export async function getServerSideProps(context: any) {
   const endpoint: any = getEndpoint("funk27");
   // @ts-ignore
   const client: any = createClient(endpoint, { fetch });
-  const allPodcastData: any = await client.getByUID("page", "podcast");
+  const allPodcastData: any = await client.getByUID("page", "podcast1");
 
   const firstSeason = allPodcastData.data.body[0].items;
   const secondSeason = allPodcastData.data.body[1].items;

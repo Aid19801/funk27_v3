@@ -23,8 +23,6 @@ import Link from "next/link";
 import Head from "next/head";
 import { hardcodeContent, popularPodcasts } from "../../utils/more-content";
 import { BadgeAvatar } from "../../components/Badge";
-import { FadeUp } from "../../components/FadeUp";
-import { BlogCard } from "../../components/BlogCard";
 
 type Props = {
   data: any;
@@ -41,13 +39,49 @@ const PagePodcastIndex = ({ data }: Props) => {
     const end = data?.body.length;
     const start = end - 3;
     const olderPods = data.body.slice(start, end);
-    // const newerPods = data.body.slice(0, start);
+    const newerPods = data.body.slice(0, start);
     const s3 = olderPods[0].items;
     const s2 = olderPods[1].items;
     const s1 = olderPods[2].items;
     // const s4 = [];
-    // const s4 = newerPods[0].items.reverse();
-    setAllContent([...s3, ...s2, ...s1]);
+    const s4 = newerPods[0].items.reverse();
+    const allTogether = [...s4, ...s3, ...s2, ...s1];
+
+    // BRING THIS BACK IN FOR GUEST/SOLO tag thing.
+    const arr =
+      allTogether &&
+      allTogether.map((each) => {
+        console.log("each", each);
+        const title = each.title1[0].text.toLowerCase();
+        const description = each.description[0].text.toLowerCase();
+        let solo = false;
+
+        if (
+          title.includes("fuck this week") ||
+          title.includes("f*ck this week") ||
+          title.includes("f**k this week") ||
+          title.includes("f*** this week") ||
+          title.includes("fuck this week")
+        ) {
+          solo = true;
+        }
+
+        if (
+          description.includes("fuck this week") ||
+          description.includes("f*ck this week") ||
+          description.includes("f**k this week") ||
+          description.includes("f*** this week") ||
+          description.includes("solo")
+        ) {
+          solo = true;
+        }
+
+        return {
+          ...each,
+          solo,
+        };
+      });
+    setAllContent(arr);
     // setAllContent([...s4, ...s3, ...s2, ...s1]);
   };
   React.useEffect(() => {
@@ -106,7 +140,7 @@ const PagePodcastIndex = ({ data }: Props) => {
         Aid Thompsin & Other Disappointments
       </Typography>
       {!allContent?.length ? (
-        <h1>loading...</h1>
+        <p>loading...</p>
       ) : (
         <>
           <Grid container spacing={2} sx={{ mb: 2 }}>
@@ -119,6 +153,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                   artworkAlt={allContent[0].podc_ep_twitter_img.alt}
                   profileImgSrc={allContent[0].guest_photo.url}
                   slug={allContent[0].episode_slug[0].text}
+                  tagText={allContent[0].solo ? "Solo Show" : "Guest"}
                 />
               </Grid>
             </Grow>
@@ -131,6 +166,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                   artworkAlt={allContent[1].podc_ep_twitter_img.alt}
                   profileImgSrc={allContent[1].guest_photo.url}
                   slug={allContent[1].episode_slug[0].text}
+                  tagText={allContent[1].solo ? "Solo Show" : "Guest"}
                 />
               </Grid>
             </Grow>
@@ -145,6 +181,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                       artworkAlt={each.podc_ep_twitter_img.alt}
                       profileImgSrc={each.guest_photo.url}
                       slug={each.episode_slug[0].text}
+                      tagText={each.solo ? "Solo Show" : "Guest"}
                     />
                   </Grid>
                 </Grow>
@@ -277,6 +314,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                       artworkAlt={each.podc_ep_twitter_img.alt}
                       profileImgSrc={each.guest_photo.url}
                       slug={each.episode_slug[0].text}
+                      tagText={each.solo ? "Solo Show" : "Guest"}
                     />
                   </Grid>
                 </Grow>
@@ -296,6 +334,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                       artworkAlt={each.podc_ep_twitter_img.alt}
                       profileImgSrc={each.guest_photo.url}
                       slug={each.episode_slug[0].text}
+                      tagText={each.solo ? "Solo Show" : "Guest"}
                     />
                   </Grid>
                 </Grow>
@@ -312,6 +351,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                   artworkAlt={allContent[18].podc_ep_twitter_img.alt}
                   profileImgSrc={allContent[18].guest_photo.url}
                   slug={allContent[18].episode_slug[0].text}
+                  tagText={allContent[18].solo ? "Solo Show" : "Guest"}
                 />
               </Grid>
             </Grow>
@@ -324,6 +364,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                   artworkAlt={allContent[19].podc_ep_twitter_img.alt}
                   profileImgSrc={allContent[19].guest_photo.url}
                   slug={allContent[19].episode_slug[0].text}
+                  tagText={allContent[19].solo ? "Solo Show" : "Guest"}
                 />
               </Grid>
             </Grow>
@@ -337,6 +378,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                   artworkAlt={allContent[20].podc_ep_twitter_img.alt}
                   profileImgSrc={allContent[20].guest_photo.url}
                   slug={allContent[20].episode_slug[0].text}
+                  tagText={allContent[20].solo ? "Solo Show" : "Guest"}
                 />
               </Grid>
             </Grow>
@@ -349,6 +391,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                   artworkAlt={allContent[21].podc_ep_twitter_img.alt}
                   profileImgSrc={allContent[21].guest_photo.url}
                   slug={allContent[21].episode_slug[0].text}
+                  tagText={allContent[21].solo ? "Solo Show" : "Guest"}
                 />
               </Grid>
             </Grow>
@@ -366,6 +409,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                       artworkAlt={each.podc_ep_twitter_img.alt}
                       profileImgSrc={each.guest_photo.url}
                       slug={each.episode_slug[0].text}
+                      tagText={each.solo ? "Solo Show" : "Guest"}
                     />
                   </Grid>
                 </Grow>
@@ -500,6 +544,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                   artworkAlt={allContent[28].podc_ep_twitter_img.alt}
                   profileImgSrc={allContent[28].guest_photo.url}
                   slug={allContent[28].episode_slug[0].text}
+                  tagText={allContent[28].solo ? "Solo Show" : "Guest"}
                 />
               </Grid>
             </Grow>
@@ -512,6 +557,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                   artworkAlt={allContent[29].podc_ep_twitter_img.alt}
                   profileImgSrc={allContent[29].guest_photo.url}
                   slug={allContent[29].episode_slug[0].text}
+                  tagText={allContent[29].solo ? "Solo Show" : "Guest"}
                 />
               </Grid>
             </Grow>
@@ -526,6 +572,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                       artworkAlt={each.podc_ep_twitter_img.alt}
                       profileImgSrc={each.guest_photo.url}
                       slug={each.episode_slug[0].text}
+                      tagText={each.solo ? "Solo Show" : "Guest"}
                     />
                   </Grid>
                 </Grow>
@@ -544,6 +591,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                       artworkAlt={each.podc_ep_twitter_img.alt}
                       profileImgSrc={each.guest_photo.url}
                       slug={each.episode_slug[0].text}
+                      tagText={each.solo ? "Solo Show" : "Guest"}
                     />
                   </Grid>
                 </Grow>
@@ -559,6 +607,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                 artworkAlt={allContent[42].podc_ep_twitter_img.alt}
                 profileImgSrc={allContent[42].guest_photo.url}
                 slug={allContent[42].episode_slug[0].text}
+                tagText={allContent[42].solo ? "Solo Show" : "Guest"}
               />
             </Grid>
             <Grid item xs={12} md={6}>
@@ -569,6 +618,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                 artworkAlt={allContent[43].podc_ep_twitter_img.alt}
                 profileImgSrc={allContent[43].guest_photo.url}
                 slug={allContent[43].episode_slug[0].text}
+                tagText={allContent[43].solo ? "Solo Show" : "Guest"}
               />
             </Grid>
 
@@ -585,6 +635,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                       artworkAlt={each.podc_ep_twitter_img.alt}
                       profileImgSrc={each.guest_photo.url}
                       slug={each.episode_slug[0].text}
+                      tagText={each.solo ? "Solo Show" : "Guest"}
                     />
                   </Grid>
                 </Grow>
@@ -604,6 +655,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                       artworkAlt={each.podc_ep_twitter_img.alt}
                       profileImgSrc={each.guest_photo.url}
                       slug={each.episode_slug[0].text}
+                      tagText={each.solo ? "Solo Show" : "Guest"}
                     />
                   </Grid>
                 </Grow>
@@ -620,6 +672,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                 artworkAlt={allContent[56].podc_ep_twitter_img.alt}
                 profileImgSrc={allContent[56].guest_photo.url}
                 slug={allContent[56].episode_slug[0].text}
+                tagText={allContent[56].solo ? "Solo Show" : "Guest"}
               />
             </Grid>
             <Grid item xs={12} md={6}>
@@ -630,6 +683,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                 artworkAlt={allContent[57].podc_ep_twitter_img.alt}
                 profileImgSrc={allContent[57].guest_photo.url}
                 slug={allContent[57].episode_slug[0].text}
+                tagText={allContent[57].solo ? "Solo Show" : "Guest"}
               />
             </Grid>
 
@@ -646,6 +700,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                       artworkAlt={each.podc_ep_twitter_img.alt}
                       profileImgSrc={each.guest_photo.url}
                       slug={each.episode_slug[0].text}
+                      tagText={each.solo ? "Solo Show" : "Guest"}
                     />
                   </Grid>
                 </Grow>
@@ -665,6 +720,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                       artworkAlt={each.podc_ep_twitter_img.alt}
                       profileImgSrc={each.guest_photo.url}
                       slug={each.episode_slug[0].text}
+                      tagText={each.solo ? "Solo Show" : "Guest"}
                     />
                   </Grid>
                 </Grow>
@@ -680,6 +736,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                 artworkAlt={allContent[70].podc_ep_twitter_img.alt}
                 profileImgSrc={allContent[70].guest_photo.url}
                 slug={allContent[70].episode_slug[0].text}
+                tagText={allContent[70].solo ? "Solo Show" : "Guest"}
               />
             </Grid>
 
@@ -691,6 +748,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                 artworkAlt={allContent[71].podc_ep_twitter_img.alt}
                 profileImgSrc={allContent[71].guest_photo.url}
                 slug={allContent[71].episode_slug[0].text}
+                tagText={allContent[71].solo ? "Solo Show" : "Guest"}
               />
             </Grid>
             <MuiDivider left />
@@ -706,6 +764,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                       artworkAlt={each.podc_ep_twitter_img.alt}
                       profileImgSrc={each.guest_photo.url}
                       slug={each.episode_slug[0].text}
+                      tagText={each.solo ? "Solo Show" : "Guest"}
                     />
                   </Grid>
                 </Grow>
@@ -766,7 +825,7 @@ const PagePodcastIndex = ({ data }: Props) => {
                 </Link>
               </Card>
             </Grid>
-            {/* <MuiDivider left /> */}
+            <MuiDivider left />
           </Grid>
         </>
       )}

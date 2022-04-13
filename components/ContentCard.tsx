@@ -21,6 +21,7 @@ interface ContentCardProps {
   firstBatch?: boolean;
   slug?: string;
   extendedStay?: boolean;
+  tagText?: string;
 }
 
 export const ContentCard: React.FC<ContentCardProps> = ({
@@ -33,6 +34,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({
   firstBatch = false,
   slug = "",
   extendedStay = false,
+  tagText,
 }) => {
   const { toggleLoading } = useMainContext();
 
@@ -46,14 +48,23 @@ export const ContentCard: React.FC<ContentCardProps> = ({
     });
   };
 
-  // const dynamicSlug = slug.includes("http") ? slug : "/podcast/[id]";
-  // const dynamicAs = slug.includes("http") ? null : `/podcast/${slug}`;
-
   return (
     <Card sx={{ minHeight: 300 }}>
       <div onClick={() => handleSelectCard()}>
         <Link href="/podcast/[id]" as={`/podcast/${slug}`}>
           <Box>
+            {tagText && (
+              <Typography
+                sx={{
+                  color: "white",
+                  background: tagText === "Solo Show" ? "#eacb92" : "orange",
+                  p: 1,
+                }}
+                variant="h6"
+              >
+                {tagText}
+              </Typography>
+            )}
             <CardMedia
               component="img"
               alt={artworkAlt}
